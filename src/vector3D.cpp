@@ -1,4 +1,4 @@
-#include "vector3D.h"
+#include "vector3d.h"
 
 namespace entities {
   vector3D::vector3D(const double x, const double y, const double z)
