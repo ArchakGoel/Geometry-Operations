@@ -1,5 +1,4 @@
-#ifndef POINT
-#define POINT
+#pragma once
 
 #include "vector3d.h"
 
@@ -12,6 +11,4 @@ namespace entities {
     explicit point() : vector3d(0.0, 0.0, 0.0) {};
   };
 
-} // namespace entities
-
-#endif
+}

@@ -1,5 +1,5 @@
-#ifndef LINE
-#define LINE
+#pragma once
+
 
 #include "point.h"
 #include "vector3d.h"
@@ -26,5 +26,3 @@ namespace entities {
 // 1. namespace with lineoperations limit to 2 inputs.
 // 2. lineAnalyzer class
 // 3.  
-
-#endif

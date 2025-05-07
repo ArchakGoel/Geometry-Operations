@@ -1,5 +1,4 @@
-#ifndef VECTOR3D
-#define VECTOR3D
+#pragma once
 
 #include <cmath>
 #include <iostream>
@@ -44,6 +43,4 @@ namespace entities {
     friend std::ostream &operator<<(std::ostream &, const vector3d &);
   };
 
-} // namespace entities
-
-#endif
+}
