@@ -1,14 +1,39 @@
-{
+
     // Use IntelliSense to learn about possible attributes.
     // Hover to view descriptions of existing attributes.
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+
+{
     "version": "0.2.0",
     "configurations": [
-        {
-
-            "program": "${workspaceFolder}/my_program"
-
-        }
-        
+      {
+        "name": "Debug Main",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${workspaceFolder}/build/main",
+        "args": [],
+        "stopAtEntry": false,
+        "cwd": "${workspaceFolder}",
+        "environment": [],
+        "externalConsole": false,
+        "MIMode": "lldb",
+        "setupCommands": [],
+        "preLaunchTask": "Build Main"
+      },
+      {
+        "name": "Debug Unit Tests",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${workspaceFolder}/build/unitTest",
+        "args": [],
+        "stopAtEntry": false,
+        "cwd": "${workspaceFolder}",
+        "environment": [],
+        "externalConsole": false,
+        "MIMode": "lldb",
+        "setupCommands": [],
+        "preLaunchTask": "Build Unit Tests"
+      }
     ]
-}
+  }
+  
