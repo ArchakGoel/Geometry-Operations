@@ -6,6 +6,7 @@
 {
     "version": "0.2.0",
     "configurations": [
+
       {
         "name": "Debug Main",
         "type": "cppdbg",
@@ -18,7 +19,7 @@
         "externalConsole": false,
         "MIMode": "lldb",
         "setupCommands": [],
-        "preLaunchTask": "Build Main"
+        "preLaunchTask": "Build main"
       },
       {
         "name": "Debug Unit Tests",

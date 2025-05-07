@@ -10,6 +10,7 @@
     },
     "files.associations": {
         "iostream": "cpp",
-        "stdexcept": "cpp"
+        "stdexcept": "cpp",
+        "cmath": "cpp"
     }
 }

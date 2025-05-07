@@ -48,6 +48,19 @@
             "problemMatcher": [
                 "$gcc"
             ]
-        }
+        },
+        {
+            "label": "Clear build main",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+              "-c",
+              "rm -rf build && mkdir -p build"
+            ],
+            "options": {
+              "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": ["$gcc"]
+          }
     ]
 }
