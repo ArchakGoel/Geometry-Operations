@@ -7,5 +7,9 @@
     "launch": {
         "configurations": [],
         "compounds": []
+    },
+    "files.associations": {
+        "iostream": "cpp",
+        "stdexcept": "cpp"
     }
 }
