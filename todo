@@ -1,0 +1,35 @@
+old code setup in VS
+joint git repo start
+code review, how?
+list of entities: 
+    vector,
+    point
+    line
+    plane
+
+Common indentation style guide install. -- done
+
+
+Code specific:
+
+0. `Always look for best possible C++ and scientific coding practices aimed at readability, clean coding, accuracy and conciseness.`
+
+    1. Check what type of functions should go in line in header and what not. For example, point const'r.
+    2. Coding style guide - const'r input names differ from class names? Is that even neede?
+    3. Split the code into .h and .cpp
+    4. Define epsilon for linear and angular for comparisons.
+    5. Method of getting angle betweeen vectors.
+    6. Fix json or start with cmake.
+    7. ##Remove #ifdef and replace with #pragma once.##
+
+    Vector Class:
+    1. {} operator - not needed. Works for vector3D{}
+    2. = operator
+    3. Remove << from friend.
+    4. Advantage of Template over keeping just double, and possibly overload with float.
+
+    Line Class:
+
+    5. Check line definition: 2 pts or 1 pt and direction.
+    6. Define edge, for 2 points.
+
