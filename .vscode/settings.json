@@ -1,0 +1,11 @@
+{
+    "C_Cpp.default.cppStandard": "c++17",
+    "C_Cpp.codeAnalysis.clangTidy.enabled": true,
+    "C_Cpp.default.customConfigurationVariables": {},
+    "C_Cpp.default.compilerPath": "",
+    "C_Cpp.errorSquiggles": "enabled",
+    "launch": {
+        "configurations": [],
+        "compounds": []
+    }
+}
