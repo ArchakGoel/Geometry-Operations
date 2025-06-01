@@ -9,16 +9,5 @@ int main() {
 
   std::cout << dotVal;
 
-  // class test {
-  // private:
-  //   int member1;
-  //   double second;
-  //   std::string chaera;
-
-  // public:
-  //   int rando;
-  //   test() { int a = 2; }
-  // };
-
   return 0;
 }
