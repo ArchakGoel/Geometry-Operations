@@ -37,6 +37,11 @@ namespace entities {
     double dot(const vector3d &) const;
     vector3d cross(const vector3d &) const;
 
+    vector3d& operator=(const vector3d& ob){
+        this->x = ob.x;
+        return *this;
+    }
+
     vector3d normalized() const;
     void normalize();
 
