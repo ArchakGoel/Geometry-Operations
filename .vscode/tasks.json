@@ -11,7 +11,7 @@
                 "-g",
                 "src/main.cpp",
                 "src/vector3d.cpp",
-                "src/line.cpp",
+                "src/Line.cpp",
                 "-o",
                 "build/main"
             ],
@@ -41,7 +41,7 @@
                 "-g",
                 "Tests/unitTest.cpp",
                 "src/vector3d.cpp",
-                "src/line.cpp",
+                "src/Line.cpp",
                 "-o",
                 "build/unitTest"
             ],
