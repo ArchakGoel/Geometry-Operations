@@ -1,14 +1,14 @@
 #pragma once
 
-#include "vector3d.h"
+#include "Vector3D.h"
 
 namespace entities {
 
-  class Point : public vector3d {
+  class Point : public Vector3D {
   public:
     explicit Point(const double x, const double y, const double z)
-        : vector3d(x, y, z) {};
-    explicit Point() : vector3d(0.0, 0.0, 0.0) {};
+        : Vector3D(x, y, z) {};
+    explicit Point() : Vector3D(0.0, 0.0, 0.0) {};
   };
 
 }

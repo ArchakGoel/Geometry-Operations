@@ -1,9 +1,9 @@
-#include "vector3d.h"
+#include "Vector3D.h"
 
 int main() {
-  entities::vector3d p1{3, 2, 1};
+  entities::Vector3D p1{3, 2, 1};
 
-  entities::vector3d p2(4, 2, 1);
+  entities::Vector3D p2(4, 2, 1);
 
   auto dotVal = p1.dot(p2);
 

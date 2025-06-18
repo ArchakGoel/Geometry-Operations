@@ -10,7 +10,7 @@
                 "-std=c++17",
                 "-g",
                 "src/main.cpp",
-                "src/vector3d.cpp",
+                "src/Vector3D.cpp",
                 "src/Line.cpp",
                 "-o",
                 "build/main"
@@ -40,7 +40,7 @@
                 "-std=c++17",
                 "-g",
                 "Tests/unitTest.cpp",
-                "src/vector3d.cpp",
+                "src/Vector3D.cpp",
                 "src/Line.cpp",
                 "-o",
                 "build/unitTest"

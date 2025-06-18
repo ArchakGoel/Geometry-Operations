@@ -6,7 +6,7 @@
 
 namespace entities {
 
-  class vector3d {
+  class Vector3D {
   private:
     double x;
     double y;
@@ -14,9 +14,9 @@ namespace entities {
     double modulus;
 
   public:
-    explicit vector3d(const double, const double, const double);
-    explicit vector3d();
-    explicit vector3d(const vector3d &);
+    explicit Vector3D(const double, const double, const double);
+    explicit Vector3D();
+    explicit Vector3D(const Vector3D &);
 
     double getX() const;
     double getY() const;
@@ -25,27 +25,27 @@ namespace entities {
 
     const double operator[](size_t) const;
 
-    vector3d operator-(const vector3d &) const;
-    vector3d operator+(const vector3d &) const;
+    Vector3D operator-(const Vector3D &) const;
+    Vector3D operator+(const Vector3D &) const;
 
-    bool operator==(const vector3d &) const;
-    bool operator!=(const vector3d &) const;
+    bool operator==(const Vector3D &) const;
+    bool operator!=(const Vector3D &) const;
 
-    vector3d operator*(const double) const;
-    vector3d operator/(const double) const;
+    Vector3D operator*(const double) const;
+    Vector3D operator/(const double) const;
 
-    double dot(const vector3d &) const;
-    vector3d cross(const vector3d &) const;
+    double dot(const Vector3D &) const;
+    Vector3D cross(const Vector3D &) const;
 
-    vector3d& operator=(const vector3d& ob){
+    Vector3D& operator=(const Vector3D& ob){
         this->x = ob.x;
         return *this;
     }
 
-    vector3d normalized() const;
+    Vector3D normalized() const;
     void normalize();
 
-    friend std::ostream &operator<<(std::ostream &, const vector3d &);
+    friend std::ostream &operator<<(std::ostream &, const Vector3D &);
   };
 
 }

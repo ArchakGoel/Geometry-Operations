@@ -2,21 +2,21 @@
 
 
 #include "Point.h"
-#include "vector3d.h"
+#include "Vector3D.h"
 
 namespace entities {
 
   class Line {
 
     Point vertex1, vertex2;
-    vector3d direction;
+    Vector3D direction;
 
   public:
     explicit Line(const Point _vertex1, const Point _vertex2);
 
     explicit Line (const Line&);
 
-    vector3d getDirection() const;
+    Vector3D getDirection() const;
 
     double dot(const Line &rhs) const;
   };
