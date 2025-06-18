@@ -1,18 +1,18 @@
 #pragma once
 
 
-#include "point.h"
+#include "Point.h"
 #include "vector3d.h"
 
 namespace entities {
 
   class line {
 
-    point vertex1, vertex2;
+    Point vertex1, vertex2;
     vector3d direction;
 
   public:
-    explicit line(const point _vertex1, const point _vertex2);
+    explicit line(const Point _vertex1, const Point _vertex2);
 
     explicit line (const line&);
 

@@ -3,7 +3,7 @@
 
 namespace entities {
 
-  line::line(const point _vertex1, const point _vertex2)
+  line::line(const Point _vertex1, const Point _vertex2)
       : vertex1(_vertex1), vertex2(_vertex2),
         direction(vector3d((vertex2.getX() - vertex1.getX()),
                            (vertex2.getY() - vertex1.getY()),
