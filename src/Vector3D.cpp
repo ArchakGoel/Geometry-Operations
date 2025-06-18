@@ -4,14 +4,21 @@ namespace entities {
   Vector3D::Vector3D(const double x, const double y, const double z)
       : x(x), y(y), z(z),
         modulus((std::sqrt(std::pow(x, 2) + std::pow(y, 2) + std::pow(z, 2)))) {
+    isNormalized = isModulusUnity();
   }
 
-  Vector3D::Vector3D() : x(0), y(0), z(0), modulus(0) {}
+  Vector3D::Vector3D() : x(0), y(0), z(0), modulus(0) {
+    isNormalized = isModulusUnity();
+  }
 
   Vector3D::Vector3D(const Vector3D &object)
       : x(object.getX()), y(object.getY()), z(object.getZ()),
-        modulus(object.getModulus()) {}
+        modulus(object.getModulus()) {
 
+    isNormalized = isModulusUnity();
+  }
+
+  bool Vector3D::isModulusUnity() const { return (modulus == 1.0); }
   double Vector3D::getX() const { return x; }
 
   double Vector3D::getY() const { return y; }
@@ -73,6 +80,9 @@ namespace entities {
   }
 
   Vector3D Vector3D::normalized() const {
+    if (isNormalized) {
+      return Vector3D(*this);
+    }
     if (modulus != 0) {
       return Vector3D(x / modulus, y / modulus, z / modulus);
     } else {
@@ -85,6 +95,7 @@ namespace entities {
       x = x / modulus;
       y = y / modulus;
       z = z / modulus;
+      isNormalized = true;
     }
   }
 
@@ -95,4 +106,4 @@ namespace entities {
     return os;
   }
 
-} 
+}

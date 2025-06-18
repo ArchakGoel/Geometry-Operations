@@ -12,6 +12,9 @@ namespace entities {
     double y;
     double z;
     double modulus;
+    bool isNormalized = false;
+
+    bool isModulusUnity() const;
 
   public:
     explicit Vector3D(const double, const double, const double);
