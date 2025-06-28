@@ -14,11 +14,16 @@ namespace entities {
   public:
     explicit Line(const Point _vertex1, const Point _vertex2);
 
-    explicit Line (const Line&);
+    Line (const Line&);
 
     Vector3D getDirection() const;
 
-    double dot(const Line &rhs) const;
+    Point getFirstPoint() const;
+    Point getSecondPoint() const;
+
+    // double dot(const Line &rhs) const;
+
+    // Vector3D cross(const Line&rhs) const;
   };
 } 
 

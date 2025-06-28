@@ -16,10 +16,18 @@ namespace entities {
   Vector3D Line::getDirection() const {
     return Vector3D(direction);
   } // This behavior seems odd. When direction is already a Vector3D object, why
-    // method is copy constr'r being explicit is stopping from returning it directly!
+    // method is copy constr'r being explicit is stopping from returning it
+    // directly!
 
-  
-  double Line::dot(const Line &rhs) const {
-    return direction.dot(rhs.getDirection());
-  }
-} // namespace entities
+  Point Line::getFirstPoint() const { return vertex1; }
+  Point Line::getSecondPoint() const { return vertex2; }
+
+  // double Line::dot(const Line &rhs) const {
+  //   return direction.dot(rhs.getDirection());
+  // }
+
+  // Vector3D Line::cross(const Line&rhs) const {
+  //   return direction.cross(rhs.getDirection());
+  // }
+
+}
