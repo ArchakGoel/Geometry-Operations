@@ -22,14 +22,36 @@ Code specific:
     6. Fix json or start with cmake.
     7. ##Remove #ifdef and replace with #pragma once.##
 
+
+    General:
+
+    1. MathUtils for isEqual using precision. Very urgent for all == operators.***
+
     Vector Class:
     1. {} operator - not needed. Works for vector3D{}
-    2. = operator
-    3. Remove << from friend.
-    4. Advantage of Template over keeping just double, and possibly overload with float.
+    2. fix the return issues with copy constr'
+    3. = operator
+    4. Remove << from friend.
+    5. Advantage of Template over keeping just double, and possibly overload with float.
+    6. add precision for isModulus comparison.
 
     Line Class:
 
-    5. Check line definition: 2 pts or 1 pt and direction.
-    6. Define edge, for 2 points.
+    7. Check line definition: 2 pts or 1 pt and direction.
+    8. Define edge, for 2 points.
 
+    JSONS:
+    9. change shell to cppbuild again.
+    10. Remove //namespace in automatic. LLVM check
+
+
+    Tests:
+    11. Add Gtests for point-plane  distance. 
+    12. 
+
+    Point Class:
+    12. Remove is a inheritance from vector. As a point is not a vector. Make composition. Return a vector form if needed, by passing origin and point.\
+
+
+    Reading/Concepts:
+    13. Check scott meyers if need to make copy constr' explicit. Its affecting normal behavior.
