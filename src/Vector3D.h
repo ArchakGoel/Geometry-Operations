@@ -3,7 +3,7 @@
 #include <cmath>
 #include <iostream>
 #include <stdexcept>
-
+#include "Point.h"
 namespace entities {
 
   class Vector3D {
@@ -16,10 +16,14 @@ namespace entities {
 
     bool isModulusUnity() const;
 
+    double calculateModulus();
+
   public:
     explicit Vector3D(const double, const double, const double);
+    explicit Vector3D(const Point& point1, const Point& point2);
+
     explicit Vector3D();
-    explicit Vector3D(const Vector3D &);
+    Vector3D(const Vector3D&);
 
     double getX() const;
     double getY() const;

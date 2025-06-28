@@ -1,24 +1,26 @@
 #include "Vector3D.h"
 
 namespace entities {
+  //todo: make modulus optional or through separate method as its expensive.
   Vector3D::Vector3D(const double x, const double y, const double z)
-      : x(x), y(y), z(z),
-        modulus((std::sqrt(std::pow(x, 2) + std::pow(y, 2) + std::pow(z, 2)))) {
-    isNormalized = isModulusUnity();
-  }
+      : x(x), y(y), z(z), modulus(calculateModulus()),
+        isNormalized(isModulusUnity()) {}
 
-  Vector3D::Vector3D() : x(0), y(0), z(0), modulus(0) {
-    isNormalized = isModulusUnity();
-  }
+  Vector3D::Vector3D()
+      : x(0), y(0), z(0), modulus(0), isNormalized(isModulusUnity()) {}
 
   Vector3D::Vector3D(const Vector3D &object)
       : x(object.getX()), y(object.getY()), z(object.getZ()),
-        modulus(object.getModulus()) {
+        modulus(object.getModulus()), isNormalized(isModulusUnity()){} //isModulus..() here could be a bug source. check
 
-    isNormalized = isModulusUnity();
-  }
+  Vector3D::Vector3D(const Point &point1, const Point &point2)
+      : x(point2.getX() - point1.getX()), y(point2.getY() - point1.getY()),
+        z(point2.getZ() - point1.getZ()), modulus(calculateModulus()),
+        isNormalized(isModulusUnity()) {}
+
 
   bool Vector3D::isModulusUnity() const { return (modulus == 1.0); }
+
   double Vector3D::getX() const { return x; }
 
   double Vector3D::getY() const { return y; }
@@ -47,7 +49,7 @@ namespace entities {
   Vector3D Vector3D::operator+(const Vector3D &rhs) const {
     return Vector3D(x + rhs.getX(), y + rhs.getY(), z + rhs.getZ());
   }
-
+  //todo: use precision
   bool Vector3D::operator==(const Vector3D &rhs) const {
     return ((x == rhs.x) && (y == rhs.y) && (z == rhs.z));
   }
@@ -90,6 +92,9 @@ namespace entities {
     }
   }
 
+  double Vector3D::calculateModulus() {
+    return (std::sqrt(std::pow(x, 2) + std::pow(y, 2) + std::pow(z, 2)));
+  }
   void Vector3D::normalize() {
     if (modulus != 0) {
       x = x / modulus;
