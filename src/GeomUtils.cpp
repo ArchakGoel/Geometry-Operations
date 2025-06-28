@@ -1,14 +1,13 @@
 #include "GeomUtils.h"
-// todo: check why need to be included again:
+// todo: check why Plane and Point need to be included again despite GeomUtils.
 #include "Plane.h"
 #include "Point.h"
-//
+
 
 namespace GeomUtils {
 
   using namespace entities;
 
-  //! @brief:returns false if point on plane or opposite side.
   bool isPointOnSameSideOfPlane(const Point &point, const Plane &plane) {
 
     auto signedDistance = signedDistanceOfPointFromPlane(point, plane);
@@ -34,8 +33,11 @@ namespace GeomUtils {
 
   Point projectionOfPointOnPlane(const Point &point, const Plane &plane) {
 
-    return Point(point - (plane.getNormal() * signedDistanceOfPointFromPlane(point, plane)));
-    //todo: check why need to redefine? Vector3D to Point constr is given.
+    return Point(point - (plane.getNormal() *
+                          signedDistanceOfPointFromPlane(point, plane)));
+    // todo: check why need to redefine? Vector3D to Point constr is given.
   }
 
-} // namespace GeomUtils
+  
+
+}
