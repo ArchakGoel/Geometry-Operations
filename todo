@@ -47,7 +47,7 @@ Code specific:
 
     Tests:
     11. Add Gtests for point-plane  distance. 
-    12. 
+    12. Add tests example: simple line intersections case: yes, skew, coincident, overlapping. Maybe 1 cross component zero, r or s > 1 and < 0.
 
     Point Class:
     12. Remove is a inheritance from vector. As a point is not a vector. Make composition. Return a vector form if needed, by passing origin and point.\

@@ -19,5 +19,5 @@ GeomUtils namespace
 
 Point Class
 
-1. A point is not a vector. So it will be removed as a vector inheritance and a vector will be used as composition.
+1. A point is not a vector. So it is not inherited as a vector3D or made available in that format via composition. For example, vector operators like Dot and cross product don't apply to a point.
 

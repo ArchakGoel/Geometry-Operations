@@ -1,0 +1,7 @@
+cleaning vs code caches if needed after refactoring:
+    Cmd+shift+P --> 1.1. Reset IntelliSense Database 
+                    1.2. Reload 
+                    
+For a new and possibly even little contrived code, write
+it all in a .h file directly without worrying about splitting
+classes in different files. That can be done later.
