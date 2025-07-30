@@ -3,8 +3,11 @@
 #include <cmath>
 #include <iostream>
 #include <stdexcept>
-#include "Point.h"
+
+
 namespace entities {
+
+  class Point;
 
   class Vector3D {
   private:

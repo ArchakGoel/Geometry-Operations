@@ -26,23 +26,24 @@ Code specific:
     General:
 
     1. MathUtils for isEqual using precision. Very urgent for all == operators.***
+    2. Forward declaration can be used everywhere. Check if worth the advantage other than for resolving circular dependency.
 
     Vector Class:
-    1. {} operator - not needed. Works for vector3D{}
-    2. fix the return issues with copy constr'
-    3. = operator
-    4. Remove << from friend.
-    5. Advantage of Template over keeping just double, and possibly overload with float.
-    6. add precision for isModulus comparison.
+    3. {} operator - not needed. Works for vector3D{}
+    4. fix the return issues with copy constr'
+    5. = operator
+    6. Remove << from friend.
+    7. Advantage of Template over keeping just double, and possibly overload with float.
+    8. add precision for isModulus comparison.
 
     Line Class:
 
-    7. Check line definition: 2 pts or 1 pt and direction.
-    8. Define edge, for 2 points.
+    9. Check line definition: 2 pts or 1 pt and direction.
+    10. Define edge, for 2 points.
 
     JSONS:
-    9. change shell to cppbuild again.
-    10. Remove //namespace in automatic. LLVM check
+    11. change shell to cppbuild again.
+    12. Remove //namespace in automatic. LLVM check
 
 
     Tests:

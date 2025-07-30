@@ -1,10 +1,10 @@
 #pragma once
 
-#include "Vector3D.h"
-
 namespace entities {
 
-  //! brief: dot and cross product don't apply to points. So no vector3D form.
+  class Vector3D;
+
+  //! brief: operations like dot and cross product don't apply to points. So no vector3D inheritance.
   class Point {
     double x, y, z;
 
@@ -29,10 +29,7 @@ namespace entities {
     double getY() const { return y; }
     double getZ() const { return z; }
 
-    Vector3D getVector() const{
-      return Vector3D(x, y, z);
-    }
-    // todo: write copy constr'
+    Vector3D getVector() const;
   };
 
 }

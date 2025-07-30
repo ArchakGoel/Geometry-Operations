@@ -1,4 +1,5 @@
 #include "Vector3D.h"
+#include "Point.h"
 
 namespace entities {
   //todo: make modulus optional or through separate method as its expensive.

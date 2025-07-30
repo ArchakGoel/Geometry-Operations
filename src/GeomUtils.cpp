@@ -37,7 +37,7 @@ namespace GeomUtils {
     auto pointVector = point.getVector() - (plane.getNormal() *
                           signedDistanceOfPointFromPlane(point, plane));
                           
-    return Point(pointVector.getX(), pointVector.getY(), pointVector.getZ);
+    return Point(pointVector.getX(), pointVector.getY(), pointVector.getZ());
     // todo: check why need to redefine? Vector3D to Point constr is given.
   }
 

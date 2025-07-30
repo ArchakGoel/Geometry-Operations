@@ -6,6 +6,7 @@ Vector3D Class
 4. Keep constructors explicit to avoid implicit conversions which is bug prone.
 5. Make sure to never allow setMethods to set x, y, z and modulus in vector3D. That can cause lot of issues, mismatching modulus, incorrect values and so on.
 6. Since we have normalized() function, member IsNormalized was introduced to avoid re-computing normalization repeatedly if it already is.
+7. To avoid issues for circular dependency, removed includes and included forward class declarations.
 
 Line Class
 
