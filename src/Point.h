@@ -5,6 +5,9 @@ namespace entities {
   class Vector3D;
 
   //! brief: operations like dot and cross product don't apply to points. So no vector3D inheritance.
+
+  // todo: 1. make a 3D operator only base class for point and vector
+  // common. todo: 2. Point copy operator non explicit.
   class Point {
     double x, y, z;
 

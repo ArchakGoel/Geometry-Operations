@@ -8,6 +8,10 @@ namespace GeomUtils {
 
   using namespace entities;
 
+  // todo: all plane methods can be moved to plane class to avoid cluttering
+  // GeomUtils. todo: LineIntersection can be made a sepearate .h and .cpp file
+  // in utils subfolder.
+
   double signedDistanceOfPointFromPlane(const Point &, const Plane &);
   Point projectionOfPointOnPlane(const Point &, const Plane &);
 

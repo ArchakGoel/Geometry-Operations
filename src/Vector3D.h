@@ -7,6 +7,7 @@
 
 namespace entities {
 
+   // todo: make vector class copy and move operator if default is not enough.
   class Point;
 
   class Vector3D {
