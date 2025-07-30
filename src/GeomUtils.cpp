@@ -1,12 +1,16 @@
 #include "GeomUtils.h"
-// todo: check why Plane and Point need to be included again despite GeomUtils.
-#include "Plane.h"
-#include "Point.h"
-
 
 namespace GeomUtils {
 
   using namespace entities;
+
+  bool isCrossProductVectorZero(const Vector3D &vector) {
+        if (fabs(vector.getX()) < precision::LINEAR &&
+            fabs(vector.getY()) < precision::LINEAR &&
+            fabs(vector.getZ()) < precision::LINEAR) {
+          return true;
+        }
+      }
 
   bool isPointOnSameSideOfPlane(const Point &point, const Plane &plane) {
 
@@ -33,12 +37,116 @@ namespace GeomUtils {
 
   Point projectionOfPointOnPlane(const Point &point, const Plane &plane) {
 
+    auto pointVector =
+        point.getVector() -
+        (plane.getNormal() * signedDistanceOfPointFromPlane(point, plane));
 
-    auto pointVector = point.getVector() - (plane.getNormal() *
-                          signedDistanceOfPointFromPlane(point, plane));
-                          
     return Point(pointVector.getX(), pointVector.getY(), pointVector.getZ());
     // todo: check why need to redefine? Vector3D to Point constr is given.
+  }
+  namespace TwoLines {
+
+    CrossAndDotCalculator::CrossAndDotCalculator(const Line &line1,
+                                                 const Line &line2,
+                                                 bool doCross, bool doDot)
+        : aToc(Vector3D(line1.getFirstPoint(), line2.getSecondPoint())) {
+
+      if (doCross) {
+        calculateCross(line1, line2);
+      }
+      if (doDot) {
+        calculateDot();
+      }
+    };
+
+    void CrossAndDotCalculator::calculateCross(const Line &line1,
+                                               const Line &line2) {
+      line1CrossLine2 = line1.getDirection().cross(line2.getDirection());
+      aTocCrossLine1 = aToc.cross(line1.getDirection());
+    }
+
+  }
+
+  namespace TwoLines {
+
+    //todo: shorten/refactor this method.
+
+  void IntersectionChecker::checkIntersectionExistence() 
+  {
+        if (isCrossProductVectorZero(data->getLine1CrossLine2().value()) &&
+            isCrossProductVectorZero(data->getaTocCrossLine1().value())) {
+          intersects = false;
+          return;
+        }
+
+        if (!(data->getLine1CrossLine2().value().dot(data
+            ->getVectorAToC()) < precision::LINEAR)) // skew
+        {
+          intersects = false;
+          return;
+        }
+        
+        if ((line1.getFirstPoint() == line2.getFirstPoint()) ||
+            (line1.getFirstPoint() == line2.getSecondPoint()) ||
+            (line1.getSecondPoint() == line2.getFirstPoint()) ||
+            (line1.getSecondPoint() == line2.getSecondPoint())) {
+          intersects = true;
+          return;
+        }
+
+        if (data->getLine1CrossLine2().value().getX() > precision::LINEAR) {
+
+          paramLine1 = data->getaTocCrossLine2().value().getX() /
+                       data->getLine1CrossLine2().value().getX();
+          paramLine2 = data->getaTocCrossLine1().value().getX() /
+                       data->getLine1CrossLine2().value().getX();
+
+        } else if (data->getLine1CrossLine2().value().getY() >
+                   precision::LINEAR) {
+
+          paramLine1 = data->getaTocCrossLine2().value().getY() /
+                       data->getLine1CrossLine2().value().getY();
+          paramLine2 = data->getaTocCrossLine1().value().getY() /
+                       data->getLine1CrossLine2().value().getY();
+
+        } else if (data->getLine1CrossLine2().value().getZ() >
+                   precision::LINEAR) {
+
+          paramLine1 = data->getaTocCrossLine2().value().getZ() /
+                       data->getLine1CrossLine2().value().getZ();
+          paramLine2 = data->getaTocCrossLine1().value().getZ() /
+                       data->getLine1CrossLine2().value().getZ();
+        }
+
+        if (paramLine1 < 0 || paramLine1 > 1 || paramLine2 < 0 ||
+            paramLine2 > 1) {
+          intersects = false;
+          return;
+        }
+  }
+
+  IntersectionChecker::IntersectionChecker(const Line &line1, const Line &line2,
+                                           crossAndDotDataPtr crossAndDotData)
+      : line1(line1), line2(line2), data(crossAndDotData) {
+    checkIntersectionExistence();
+  }
+
+    void IntersectionChecker::calculateIntersectionPoint() {
+
+      if (intersects) {
+
+        auto pointVector =
+            Vector3D(line1.getFirstPoint().getX(), line1.getFirstPoint().getY(),
+                     line1.getFirstPoint().getZ());
+
+        pointVector = (line1.getDirection() * paramLine1) + pointVector;
+
+        intersectionPoint =
+            Point(pointVector.getX(), pointVector.getY(), pointVector.getZ());
+        // test by matching with point from paramLine2.
+      }
+    }
+
   }
 
 }

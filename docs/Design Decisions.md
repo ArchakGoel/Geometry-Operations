@@ -17,6 +17,10 @@ Line Class
 GeomUtils namespace
 
 1. Functions common to lines, planes and other entities for geometric operations are kept here. Its very complicated to keep them in classes of individual entities. For example, in a member fucntion based approach, point to plane distance goes in point or plane class or both?
+2. Getter methods are set to inline without the keyword. Its inline by default.
+3. Re-write root level namespace for separation of definitions of a different class for ease of readability.
+4.  "lineIntersectionChecker" is not enough, as it doesn't tell line intersection with what and how many?.\
+    Hence the name "TwoLinesIntersectionChecker".
 
 Point Class
 
