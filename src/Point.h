@@ -18,10 +18,14 @@ namespace entities {
       return Point(x+rhs.x, y+rhs.y, z+rhs.z);
     }
 
-    double getX()const {return x;}
-    double getY()const {return y;}
-    double getZ()const {return z;}
-    //todo: write copy constr'
+    Point operator-(const Point &rhs) const {
+      return Point(x - rhs.x, y - rhs.y, z - rhs.z);
+    }
+
+    Vector3D getVector() const{
+      return Vector3D(x, y, z);
+    }
+    // todo: write copy constr'
   };
 
 }
