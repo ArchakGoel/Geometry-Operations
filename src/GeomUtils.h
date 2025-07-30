@@ -34,11 +34,9 @@ namespace GeomUtils {
                                                      doDot);
     }
 
-   // todo: can make a vector<Line> input instead of separate to avoid
-    // interchanging line1 with line2
+   // todo: can make a vector<Line> input instead of separate to avoid interchanging line1 with line2
 
-    //!@brief: A and B are 1st and 2nd points of Line1 and C and D are for
-    //!Line2.
+    //!@brief: A and B are 1st and 2nd points of Line1 and C and D are for Line2.
 
     // todo: remove this comment if not required
     class CrossAndDotCalculator {
