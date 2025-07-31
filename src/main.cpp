@@ -16,7 +16,7 @@ int main() {
 
   auto dotVal = p1.dot(p2);
 
-  std::cout << dotVal;
+  std::cout << "main is generating output" << dotVal;
 
   return 0;
 }

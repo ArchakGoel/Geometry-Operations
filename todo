@@ -14,36 +14,36 @@ Code specific:
 
 0. `Always look for best possible C++ and scientific coding practices aimed at readability, clean coding, accuracy and conciseness.`
 
-    1. Check what type of functions should go in line in header and what not. For example, point const'r.
+    1. Check what type of functions should go in line in header and what not. For example, point const'r.-- simple returns should go inline
     2. Coding style guide - const'r input names differ from class names? Is that even neede?
     3. Split the code into .h and .cpp
     4. Define epsilon for linear and angular for comparisons.
     5. Method of getting angle betweeen vectors.
     6. Fix json or start with cmake.
-    7. ##Remove #ifdef and replace with #pragma once.##
+
 
 
     General:
 
-    1. MathUtils for isEqual using precision. Very urgent for all == operators.***
-    2. Forward declaration can be used everywhere. Check if worth the advantage other than for resolving circular dependency.
+    7. MathUtils for isEqual using precision. Very urgent for all == operators.***
+    8. Forward declaration can be used everywhere. Check if worth the advantage other than for resolving circular dependency.
 
     Vector Class:
-    3. {} operator - not needed. Works for vector3D{}
-    4. fix the return issues with copy constr'
-    5. = operator
-    6. Remove << from friend.
-    7. Advantage of Template over keeping just double, and possibly overload with float.
-    8. add precision for isModulus comparison.
+    9. {} operator - not needed. Works for vector3D{}
+    10. fix the return issues with copy constr'
+    11. = operator
+    12. Remove << from friend.
+    13. Advantage of Template over keeping just double, and possibly overload with float.
+    14. add precision for isModulus comparison.
 
     Line Class:
 
-    9. Check line definition: 2 pts or 1 pt and direction.
-    10. Define edge, for 2 points.
+    15. Check line definition: 2 pts or 1 pt and direction.
+    16. Define edge, for 2 points.
 
     JSONS:
-    11. change shell to cppbuild again.
-    12. Remove //namespace in automatic. LLVM check
+    17. change shell to cppbuild again.
+    18. Remove //namespace in automatic. LLVM check
 
 
     Tests:

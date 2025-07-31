@@ -1,1 +1,0 @@
-1. Precision is borrowed from PRECISION.hxx in occt. Very good description.
