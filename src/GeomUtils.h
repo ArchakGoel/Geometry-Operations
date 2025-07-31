@@ -2,24 +2,23 @@
 
 #include "Constants.h"
 #include "Line.h"
-#include "Plane.h"
+#include <optional>
 
 namespace GeomUtils {
 
   using namespace entities;
 
   bool doLinesIntersect(const Line &, const Line &);
-  std::optional<Point> intersectionOfTwoLines(const Line &, const Line &);
   bool isZero(const Vector3D &);
 }
-
-
 
 namespace GeomUtils {
 
   namespace TwoLines {
-    // todo: can make a vector<Line> input instead of separate to avoid interchanging line1 with line2
-    //!@brief: A and B are 1st and 2nd points of Line1 and C and D are for Line2.
+    // note: can make a vector<Line> input instead of separate lines to avoid
+    // interchanging line1 with line2
+    //!@brief: A and B are 1st and 2nd points of Line1 and C and D are for
+    //!Line2.
     class CrossAndDotCalculator {
 
     private:
@@ -33,7 +32,7 @@ namespace GeomUtils {
 
       void calculateCross(const Line &, const Line &);
 
-      void calculateDot(); // todo: define this.
+      void calculateDot(const Line &, const Line &) { return; }
 
     public:
       CrossAndDotCalculator(const Line &line1, const Line &line2,
@@ -64,19 +63,15 @@ namespace GeomUtils {
     };
 
     using crossAndDotDataPtr = std::shared_ptr<CrossAndDotCalculator>;
-
     crossAndDotDataPtr makeLinePairAnalysis(const Line &line1,
                                             const Line &line2,
                                             bool doCross = true,
-                                            bool doDot = false) {
-      return std::make_shared<CrossAndDotCalculator>(line1, line2, doCross,
-                                                     doDot);
-    }
+                                            bool doDot = false);
 
-  //!@brief: Interesection checker for lines in parametric form. Has
-  //! optionality to not compute intersection point, and just check if
-  //! intersects or not - which will be checked mandatorily in the
-  //! constructor.
+    //!@brief: Interesection checker for lines in parametric form. Has
+    //! optionality to not compute intersection point, and just check if
+    //! intersects or not - which will be checked mandatorily in the
+    //! constructor.
     class IntersectionChecker {
       // todo: put check for null lines. make rep for null vectors.
       crossAndDotDataPtr data;
@@ -89,7 +84,6 @@ namespace GeomUtils {
       void checkIntersectionExistence();
 
     public:
-   
       explicit IntersectionChecker(const Line &line1, const Line &line2,
                                    crossAndDotDataPtr crossAndDotData);
 
