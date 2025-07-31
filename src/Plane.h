@@ -17,6 +17,6 @@ namespace entities {
     bool isPointOnSameSide(const Point &) const;
     double distanceFromPlane(const Point &point) const;
 
-    bool operator ==(const Plane&) const;
+    bool operator==(const Plane &) const;
   };
-} 
+}

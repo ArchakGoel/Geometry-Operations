@@ -15,7 +15,6 @@ namespace entities {
     return !(
         std::fabs(signedDistance < std::numeric_limits<double>::epsilon()) ||
         std::signbit(signedDistance));
-    // todo: put isZero in a method in Mathutils for better readability.
   }
 
   double Plane::signedDistanceFromPlane(const Point &point) const {
@@ -36,7 +35,6 @@ namespace entities {
         point.getVector() - (this->normal * signedDistanceFromPlane(point));
 
     return Point(pointVector.getX(), pointVector.getY(), pointVector.getZ());
-    // todo: check why need to redefine? Vector3D to Point constr is given.
   }
 
   bool Plane::operator==(const Plane &plane) const {
