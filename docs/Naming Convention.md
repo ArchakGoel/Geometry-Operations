@@ -2,3 +2,4 @@
 2. Class names and file names start with capital letter.
 3. #pragma once instead of #ifndef
 4. No short names like `vec` or `calc`. Full names only.
+5. Function names should signify the action is it doing: calculateCross().
