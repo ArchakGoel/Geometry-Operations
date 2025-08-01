@@ -1,58 +1,35 @@
-old code setup in VS
-joint git repo start
-code review, how?
-list of entities: 
-    vector,
-    point
-    line
-    plane
-
-Common indentation style guide install. -- done
-
-
 Code specific:
 
-0. `Always look for best possible C++ and scientific coding practices aimed at readability, clean coding, accuracy and conciseness.`
-
-    1. Check what type of functions should go in line in header and what not. For example, point const'r.-- simple returns should go inline
-    2. Coding style guide - const'r input names differ from class names? Is that even neede?
-    3. Split the code into .h and .cpp
-    4. Define epsilon for linear and angular for comparisons.
-    5. Method of getting angle betweeen vectors.
-    6. Fix json or start with cmake.
-
-
-
     General:
-
-    7. MathUtils for isEqual using precision. Very urgent for all == operators.***
-    8. Forward declaration can be used everywhere. Check if worth the advantage other than for resolving circular dependency.
+    1. Check what type of functions should go in line in header and what not. For example, point const'r.-- simple returns should go inline
+    2. Method of getting angle betweeen vectors.
+    3. Cmake.
+    4. MathUtils for isEqual using precision. Very urgent for all == operators.***
+    5. Forward declaration can be used everywhere. Check if worth the advantage other than for resolving circular dependency.
 
     Vector Class:
-    9. {} operator - not needed. Works for vector3D{}
-    10. fix the return issues with copy constr'
-    11. = operator
-    12. Remove << from friend.
-    13. Advantage of Template over keeping just double, and possibly overload with float.
-    14. add precision for isModulus comparison.
+    6. {} operator - not needed. Works for vector3D{}
+    7.  fix the return issues with copy constr'. Check Scott Meyer's advice on removing explicit from copy const'r.
+    8.  = operator
+    9.  Remove << from friend.
+    10. Advantage of Template over keeping just double.
+    11. Add precision for isModulus comparison.
 
     Line Class:
-
-    15. Check line definition: 2 pts or 1 pt and direction.
-    16. Define edge, for 2 points.
+    12. Check line definition: 2 pts or 1 pt and direction.
+    13. Define edge, for 2 points.
 
     JSONS:
-    17. change shell to cppbuild again.
-    18. Remove //namespace in automatic. LLVM check
+    14. change shell to cppbuild again.
+    15. Remove //namespace in automatic clang format.
 
 
     Tests:
-    11. Add Gtests for point-plane  distance. 
-    12. Add tests example: simple line intersections case: yes, skew, coincident, overlapping. Maybe 1 cross component zero, r or s > 1 and < 0.
+    19. Add Gtests.
+    20. Add tests example: simple line intersections case: yes, skew, coincident, overlapping. Maybe 1 cross component zero, r or s > 1 and < 0.
 
     Point Class:
-    12. Remove is a inheritance from vector. As a point is not a vector. Make composition. Return a vector form if needed, by passing origin and point.\
+    21. Remove is a inheritance from vector. As a point is not a vector. Make composition. Return a vector form if needed, by passing origin and point. -- done.
 
 
     Reading/Concepts:
-    13. Check scott meyers if need to make copy constr' explicit. Its affecting normal behavior.
