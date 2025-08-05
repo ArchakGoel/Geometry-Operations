@@ -41,6 +41,6 @@ namespace entities {
 
     return (GeomUtils::isZero(this->normal.cross(plane.getNormal())) &&
             (std::fabs(Vector3D(this->point, plane.point).dot(this->normal)) <
-             precision::LINEAR));
+             precision::CAD::LINEAR));
   }
 }

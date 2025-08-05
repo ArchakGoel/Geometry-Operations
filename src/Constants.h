@@ -2,14 +2,13 @@
 #include <cmath>
 
 namespace precision{
+    namespace CAD{
 
-const double LINEAR = 1.0e-7;
-const double ANGULAR = 1.0e-12;
+        const double LINEAR = 1.0e-7;
+        const double ANGULAR = 1.0e-12;
 
-
-}
-
-namespace constants{
-
-    //other constants with apt. name of namespace for that category.
+    }
+    namespace Math{
+        double EPSILON = std::numeric_limits<double>::epsilon();
+    }
 }

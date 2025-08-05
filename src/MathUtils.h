@@ -3,7 +3,7 @@
 
 namespace MathUtils {
 
-    bool isZero(double x, double epsilon = std::numeric_limits<double>::epsilon());
+    bool isZero(double x, double epsilon = precision::Math::EPSILON);
 
     double round(float value, int precision = 3);
 

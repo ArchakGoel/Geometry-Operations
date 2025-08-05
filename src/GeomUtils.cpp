@@ -5,9 +5,9 @@ namespace GeomUtils {
   using namespace entities;
 
   bool isZero(const Vector3D &vector) {
-    return (fabs(vector.getX()) < precision::LINEAR &&
-            fabs(vector.getY()) < precision::LINEAR &&
-            fabs(vector.getZ()) < precision::LINEAR);
+    return (fabs(vector.getX()) < precision::CAD::LINEAR &&
+            fabs(vector.getY()) < precision::CAD::LINEAR &&
+            fabs(vector.getZ()) < precision::CAD::LINEAR);
   }
 
   namespace TwoLines {
@@ -52,7 +52,7 @@ namespace GeomUtils {
       }
 
       if (!(data->getLine1CrossLine2().value().dot(data->getVectorAToC()) <
-            precision::LINEAR)) // skew
+            precision::CAD::LINEAR)) // skew
       {
         intersects = false;
         return;
@@ -66,7 +66,7 @@ namespace GeomUtils {
         return;
       }
 
-      if (data->getLine1CrossLine2().value().getX() > precision::LINEAR) {
+      if (data->getLine1CrossLine2().value().getX() > precision::CAD::LINEAR) {
 
         paramLine1 = data->getaTocCrossLine2().value().getX() /
                      data->getLine1CrossLine2().value().getX();
@@ -74,7 +74,7 @@ namespace GeomUtils {
                      data->getLine1CrossLine2().value().getX();
 
       } else if (data->getLine1CrossLine2().value().getY() >
-                 precision::LINEAR) {
+                 precision::CAD::LINEAR) {
 
         paramLine1 = data->getaTocCrossLine2().value().getY() /
                      data->getLine1CrossLine2().value().getY();
@@ -82,7 +82,7 @@ namespace GeomUtils {
                      data->getLine1CrossLine2().value().getY();
 
       } else if (data->getLine1CrossLine2().value().getZ() >
-                 precision::LINEAR) {
+                 precision::CAD::LINEAR) {
 
         paramLine1 = data->getaTocCrossLine2().value().getZ() /
                      data->getLine1CrossLine2().value().getZ();
