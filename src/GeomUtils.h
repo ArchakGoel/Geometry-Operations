@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Constants.h"
+#include "MathUtils.h"
 #include "Line.h"
 #include <optional>
 
@@ -8,8 +9,19 @@ namespace GeomUtils {
 
   using namespace entities;
 
+  bool isZero(const Vector3D &vector) {
+    return (fabs(vector.getX()) < precision::CAD::LINEAR &&
+            fabs(vector.getY()) < precision::CAD::LINEAR &&
+            fabs(vector.getZ()) < precision::CAD::LINEAR);
+  }
+  double isLinearEqual(double a, double b, double epsilon = precision::CAD::LINEAR) {
+        return (MathUtils::isEqual(a,b,epsilon));
+    };
+  double isAngularEqual(double a, double b, double epsilon = precision::CAD::ANGULAR) {
+        return (MathUtils::isEqual(a,b,epsilon));
+    };
+
   bool doLinesIntersect(const Line &, const Line &);
-  bool isZero(const Vector3D &);
 }
 
 namespace GeomUtils {

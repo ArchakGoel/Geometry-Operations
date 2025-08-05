@@ -5,10 +5,13 @@ namespace MathUtils {
 
     bool isZero(double x, double epsilon = precision::Math::EPSILON);
 
-    double round(float value, int precision = 3);
+    double round(float value, int precision = 3){
+        int multiplier = std::pow(10, precision);
+        value = (int)(value * multiplier + .5);
+        return (double)value / multiplier;
+    }
 
-    static double approxEqual(double a, double b, double epsilon = 1e-6) {
-        double difference = fabs(b - a);
-        return (difference <= epsilon);
+    double isEqual(double a, double b, double epsilon = precision::Math::EPSILON) {
+        return (std::abs(b - a) <= epsilon);
     };
 };

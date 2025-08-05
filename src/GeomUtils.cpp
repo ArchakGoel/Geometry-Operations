@@ -4,12 +4,6 @@ namespace GeomUtils {
 
   using namespace entities;
 
-  bool isZero(const Vector3D &vector) {
-    return (fabs(vector.getX()) < precision::CAD::LINEAR &&
-            fabs(vector.getY()) < precision::CAD::LINEAR &&
-            fabs(vector.getZ()) < precision::CAD::LINEAR);
-  }
-
   namespace TwoLines {
 
     crossAndDotDataPtr makeLinePairAnalysis(const Line &line1,
