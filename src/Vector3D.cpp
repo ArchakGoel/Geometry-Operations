@@ -19,16 +19,12 @@ namespace entities {
         z(point2.getZ() - point1.getZ()), modulus(calculateModulus()),
         isNormalized(isModulusUnity()) {}
 
-
-  bool Vector3D::isModulusUnity() const { return (modulus == 1.0); }
-
-  double Vector3D::getX() const { return x; }
-
-  double Vector3D::getY() const { return y; }
-
-  double Vector3D::getZ() const { return z; }
-
-  double Vector3D::getModulus() const { return modulus; }
+  Vector3D& Vector3D::operator=(const Vector3D& rhs){
+        this->x = rhs.x;
+        this->y = rhs.y;
+        this->z = rhs.z;
+        return *this;
+  }
 
   const double Vector3D::operator[](size_t index) const {
     switch (index) {

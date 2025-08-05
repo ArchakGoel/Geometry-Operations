@@ -18,8 +18,6 @@ namespace entities {
     double modulus;
     bool isNormalized = false;
 
-    bool isModulusUnity() const;
-
     double calculateModulus();
 
   public:
@@ -29,10 +27,15 @@ namespace entities {
     explicit Vector3D();
     Vector3D(const Vector3D&);
 
-    double getX() const;
-    double getY() const;
-    double getZ() const;
-    double getModulus() const;
+    bool isModulusUnity() const { return (modulus == 1.0); }
+
+    double getX() const { return x; }
+
+    double getY() const { return y; }
+
+    double getZ() const { return z; }
+
+    double getModulus() const { return modulus; }
 
     const double operator[](size_t) const;
 
@@ -48,10 +51,7 @@ namespace entities {
     double dot(const Vector3D &) const;
     Vector3D cross(const Vector3D &) const;
 
-    Vector3D& operator=(const Vector3D& ob){
-        this->x = ob.x;
-        return *this;
-    }
+    Vector3D& operator=(const Vector3D& );
 
     Vector3D normalized() const;
     void normalize();
