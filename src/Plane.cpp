@@ -39,7 +39,7 @@ namespace entities {
 
   bool Plane::operator==(const Plane &plane) const {
 
-    return (GeomUtils::isZero(this->normal.cross(plane.getNormal())) &&
+    return ((this->normal.cross(plane.getNormal()).isZero()) &&
             (std::fabs(Vector3D(this->point, plane.point).dot(this->normal)) <
              precision::CAD::LINEAR));
   }

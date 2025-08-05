@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Constants.h"
-#include "MathUtils.h"
 #include "Line.h"
 #include <optional>
 
@@ -9,35 +8,18 @@ namespace GeomUtils {
 
   using namespace entities;
 
-  bool isZero(const Vector3D &vector) {
-    return (fabs(vector.getX()) < precision::CAD::LINEAR &&
-            fabs(vector.getY()) < precision::CAD::LINEAR &&
-            fabs(vector.getZ()) < precision::CAD::LINEAR);
-  }
-  double isLinearEqual(double a, double b, double epsilon = precision::CAD::LINEAR) {
-        return (MathUtils::isEqual(a,b,epsilon));
-    };
-  double isAngularEqual(double a, double b, double epsilon = precision::CAD::ANGULAR) {
-        return (MathUtils::isEqual(a,b,epsilon));
-    };
-
-  bool doLinesIntersect(const Line &, const Line &);
-}
-
-namespace GeomUtils {
-
   namespace TwoLines {
     // note: can make a vector<Line> input instead of separate lines to avoid
     // interchanging line1 with line2
     //!@brief: A and B are 1st and 2nd points of Line1 and C and D are for
-    //!Line2.
+    //! Line2.
     class CrossAndDotCalculator {
 
     private:
       Vector3D aToc;
-      std::optional<Vector3D> line1CrossLine2;
-      std::optional<Vector3D> aTocCrossLine1;
-      std::optional<Vector3D> aTocCrossLine2;
+      Vector3D line1CrossLine2;
+      Vector3D aTocCrossLine1;
+      Vector3D aTocCrossLine2;
 
       std::optional<double> line1DotLine2;
       std::optional<double> line1DotLine2Normalized;
@@ -50,16 +32,9 @@ namespace GeomUtils {
       CrossAndDotCalculator(const Line &line1, const Line &line2,
                             bool doCross = true, bool doDot = false);
 
-      std::optional<Vector3D> getLine1CrossLine2() const {
-        return (line1CrossLine2.has_value() ? line1CrossLine2 : std::nullopt);
-      }
-      std::optional<Vector3D> getaTocCrossLine1() const {
-        return (aTocCrossLine1.has_value() ? aTocCrossLine1 : std::nullopt);
-        ;
-      }
-      std::optional<Vector3D> getaTocCrossLine2() const {
-        return (aTocCrossLine2.has_value() ? aTocCrossLine2 : std::nullopt);
-      }
+      Vector3D getLine1CrossLine2() const { return line1CrossLine2; }
+      Vector3D getaTocCrossLine1() const {return aTocCrossLine1; }
+      Vector3D getaTocCrossLine2() const { return aTocCrossLine2; }
       Vector3D getVectorAToC() const { return aToc; }
     };
 

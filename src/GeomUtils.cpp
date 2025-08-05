@@ -1,4 +1,5 @@
 #include "GeomUtils.h"
+#include "MathUtils.h"
 
 namespace GeomUtils {
 
@@ -39,14 +40,14 @@ namespace GeomUtils {
     // todo: shorten/refactor this method.
 
     void IntersectionChecker::checkIntersectionExistence() {
-      if (isZero(data->getLine1CrossLine2().value()) &&
-          isZero(data->getaTocCrossLine1().value())) {
+      if ((data->getLine1CrossLine2().value().isZero()) &&
+          (data->getaTocCrossLine1().value().isZero())) {
         intersects = false;
         return;
       }
 
-      if (!(data->getLine1CrossLine2().value().dot(data->getVectorAToC()) <
-            precision::CAD::LINEAR)) // skew
+      if (std::fabs(data->getLine1CrossLine2().value().dot(data->getVectorAToC())) >
+          precision::CAD::LINEAR) // skew
       {
         intersects = false;
         return;

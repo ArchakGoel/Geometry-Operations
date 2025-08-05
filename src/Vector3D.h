@@ -3,6 +3,7 @@
 #include <cmath>
 #include <iostream>
 #include <stdexcept>
+#include "Constants.h"
 
 
 namespace entities {
@@ -25,7 +26,7 @@ namespace entities {
     explicit Vector3D(const Point& point1, const Point& point2);
 
     explicit Vector3D();
-    Vector3D(const Vector3D&);
+    Vector3D(const Vector3D&) = default;
 
     Vector3D& operator=(const Vector3D& ) = default;
 
@@ -55,6 +56,12 @@ namespace entities {
 
     Vector3D normalized() const;
     void normalize();
+
+    bool isZero() const {
+    return (fabs(x) < precision::CAD::LINEAR &&
+            fabs(y) < precision::CAD::LINEAR &&
+            fabs(z) < precision::CAD::LINEAR);
+  }
 
     friend std::ostream &operator<<(std::ostream &, const Vector3D &);
   };
