@@ -22,7 +22,7 @@ namespace GeomUtils {
     CrossAndDotCalculator::CrossAndDotCalculator(const Line &line1,
                                                  const Line &line2,
                                                  bool doCross, bool doDot)
-        : aToc(Vector3D(line1.getVertex1(), line2.getVertex2())) {
+        : aToc(Vector3D(line1.getVertex1(), line2.getVertex1())) {
 
       if (doCross) {
         calculateCross(line1, line2);
