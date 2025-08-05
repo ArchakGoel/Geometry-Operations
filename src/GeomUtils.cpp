@@ -40,13 +40,13 @@ namespace GeomUtils {
     // todo: shorten/refactor this method.
 
     void IntersectionChecker::checkIntersectionExistence() {
-      if ((data->getLine1CrossLine2().value().isZero()) &&
-          (data->getaTocCrossLine1().value().isZero())) {
+      if ((data->getLine1CrossLine2().isZero()) &&
+          (data->getaTocCrossLine1().isZero())) {
         intersects = false;
         return;
       }
 
-      if (std::fabs(data->getLine1CrossLine2().value().dot(data->getVectorAToC())) >
+      if (std::fabs(data->getLine1CrossLine2().dot(data->getVectorAToC())) >
           precision::CAD::LINEAR) // skew
       {
         intersects = false;
@@ -61,28 +61,28 @@ namespace GeomUtils {
         return;
       }
 
-      if (data->getLine1CrossLine2().value().getX() > precision::CAD::LINEAR) {
+      if (data->getLine1CrossLine2().getX() > precision::CAD::LINEAR) {
 
-        paramLine1 = data->getaTocCrossLine2().value().getX() /
-                     data->getLine1CrossLine2().value().getX();
-        paramLine2 = data->getaTocCrossLine1().value().getX() /
-                     data->getLine1CrossLine2().value().getX();
+        paramLine1 = data->getaTocCrossLine2().getX() /
+                     data->getLine1CrossLine2().getX();
+        paramLine2 = data->getaTocCrossLine1().getX() /
+                     data->getLine1CrossLine2().getX();
 
-      } else if (data->getLine1CrossLine2().value().getY() >
+      } else if (data->getLine1CrossLine2().getY() >
                  precision::CAD::LINEAR) {
 
-        paramLine1 = data->getaTocCrossLine2().value().getY() /
-                     data->getLine1CrossLine2().value().getY();
-        paramLine2 = data->getaTocCrossLine1().value().getY() /
-                     data->getLine1CrossLine2().value().getY();
+        paramLine1 = data->getaTocCrossLine2().getY() /
+                     data->getLine1CrossLine2().getY();
+        paramLine2 = data->getaTocCrossLine1().getY() /
+                     data->getLine1CrossLine2().getY();
 
-      } else if (data->getLine1CrossLine2().value().getZ() >
+      } else if (data->getLine1CrossLine2().getZ() >
                  precision::CAD::LINEAR) {
 
-        paramLine1 = data->getaTocCrossLine2().value().getZ() /
-                     data->getLine1CrossLine2().value().getZ();
-        paramLine2 = data->getaTocCrossLine1().value().getZ() /
-                     data->getLine1CrossLine2().value().getZ();
+        paramLine1 = data->getaTocCrossLine2().getZ() /
+                     data->getLine1CrossLine2().getZ();
+        paramLine2 = data->getaTocCrossLine1().getZ() /
+                     data->getLine1CrossLine2().getZ();
       }
 
       if (paramLine1 < 0 || paramLine1 > 1 || paramLine2 < 0 ||

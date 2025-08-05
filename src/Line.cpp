@@ -1,4 +1,3 @@
-
 #include "Line.h"
 
 namespace entities {

@@ -1,4 +1,3 @@
-#include "Vector3D.h"
 #include "GeomUtils.h"
 #include "Plane.h"
 

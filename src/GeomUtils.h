@@ -33,7 +33,7 @@ namespace GeomUtils {
                             bool doCross = true, bool doDot = false);
 
       Vector3D getLine1CrossLine2() const { return line1CrossLine2; }
-      Vector3D getaTocCrossLine1() const {return aTocCrossLine1; }
+      Vector3D getaTocCrossLine1() const { return aTocCrossLine1; }
       Vector3D getaTocCrossLine2() const { return aTocCrossLine2; }
       Vector3D getVectorAToC() const { return aToc; }
     };
