@@ -6,11 +6,12 @@ Code specific:
     3. Cmake.
     4. MathUtils for isEqual using precision. Very urgent for all == operators.***
     5. Forward declaration can be used everywhere. Check if worth the advantage other than for resolving circular dependency.
-
+    6. There is no need for custom operators. It was only done for practice. Remove as much as possible with a note. More custom operators lead to more bugs.
+   
     Vector Class:
     6. {} operator - not needed. Works for vector3D{}
     7.  fix the return issues with copy constr'. Check Scott Meyer's advice on removing explicit from copy const'r.
-    8.  = operator
+    8.  = operator make default.
     9.  Remove << from friend.
     10. Advantage of Template over keeping just double.
     11. Add precision for isModulus comparison.

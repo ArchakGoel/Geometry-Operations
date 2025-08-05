@@ -1,15 +1,16 @@
 General:
-1. Rule of 5 only when custom ones are really needed. Avoid unnecessary clutter.
+
 2. To avoid issues for circular dependency, removed includes and included forward class declarations.
 
 Vector3D Class
 
-1. ostream is a friend to allow usage in correct format: `cout << vector object`. Otherwise if its a member function, it would have to be `object << ` 
-2. [] operator is not returning a reference, as its a just a small double value and its not intended to be changed. Keeping it simple.
-3. Keep everything in a named or unnamed namespace for avoiding name conflicts.
-4. Keep constructors explicit to avoid implicit conversions which is bug prone.
-5. Make sure to never allow setMethods to set x, y, z and modulus in vector3D. That can cause lot of issues, mismatching modulus, incorrect values and so on.
-6. Since we have normalized() function, member IsNormalized was introduced to avoid re-computing normalization repeatedly as its expensive operation.
+1. Removed = and copy constructors from Vector3D and made default. 
+2. ostream is a friend to allow usage in correct format: `cout << vector object`. Otherwise if its a member function, it would have to be `object << ` 
+3. [] operator is not returning a reference, as its a just a small double value and its not intended to be changed. Keeping it simple.
+4. Keep everything in a named or unnamed namespace for avoiding name conflicts.
+5. Keep constructors explicit to avoid implicit conversions which is bug prone.
+6. Make sure to never allow setMethods to set x, y, z and modulus in vector3D. That can cause lot of issues, mismatching modulus, incorrect values and so on.
+7. Since we have normalized() function, member IsNormalized was introduced to avoid re-computing normalization repeatedly as its expensive operation.
 
 
 Line Class
@@ -27,6 +28,12 @@ GeomUtils namespace
 4.  "lineIntersectionChecker" is not enough, as it doesn't tell line intersection with what and how many?. Hence the name "TwoLinesIntersectionChecker".
 5.  Cross and Dot Calculator:
     1.  not storing lines. The client will have access to lines given as input, so not needed. Plus not needed anywhere after constructor.
+6. IntersectionChecker : all cross products are stored as non-optional members. As they can be 0 vectors. And 3D math supports 0 vectors so they are not filtered out by optional.
+
+MathUtils namespace
+
+1. Kept only .h file as only 1 method longer than 1 line.
+
 
 Point Class
 
