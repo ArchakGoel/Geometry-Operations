@@ -10,21 +10,10 @@ namespace entities {
   Vector3D::Vector3D()
       : x(0), y(0), z(0), modulus(0), isNormalized(isModulusUnity()) {}
 
-  Vector3D::Vector3D(const Vector3D &object)
-      : x(object.getX()), y(object.getY()), z(object.getZ()),
-        modulus(object.getModulus()), isNormalized(isModulusUnity()){} //isModulus..() here could be a bug source. check
-
   Vector3D::Vector3D(const Point &point1, const Point &point2)
       : x(point2.getX() - point1.getX()), y(point2.getY() - point1.getY()),
         z(point2.getZ() - point1.getZ()), modulus(calculateModulus()),
         isNormalized(isModulusUnity()) {}
-
-  Vector3D& Vector3D::operator=(const Vector3D& rhs){
-        this->x = rhs.x;
-        this->y = rhs.y;
-        this->z = rhs.z;
-        return *this;
-  }
 
   const double Vector3D::operator[](size_t index) const {
     switch (index) {

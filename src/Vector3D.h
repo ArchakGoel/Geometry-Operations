@@ -27,6 +27,8 @@ namespace entities {
     explicit Vector3D();
     Vector3D(const Vector3D&);
 
+    Vector3D& operator=(const Vector3D& ) = default;
+
     bool isModulusUnity() const { return (modulus == 1.0); }
 
     double getX() const { return x; }
@@ -50,8 +52,6 @@ namespace entities {
 
     double dot(const Vector3D &) const;
     Vector3D cross(const Vector3D &) const;
-
-    Vector3D& operator=(const Vector3D& );
 
     Vector3D normalized() const;
     void normalize();
