@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+/build
+.DS_Store
+
+# Docs
+tricks and learnings
+*.zip
