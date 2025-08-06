@@ -46,8 +46,7 @@ namespace GeomUtils {
         return;
       }
 
-      if (std::abs(data->getLine1CrossLine2().dot(data->getVectorAToC())) >
-          precision::CAD::LINEAR) // skew
+      if (!MathUtils::isZero(data->getLine1CrossLine2().dot(data->getVectorAToC()))) // skew
       {
         intersects = false;
         return;

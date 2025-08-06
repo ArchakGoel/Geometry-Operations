@@ -24,11 +24,7 @@ namespace entities {
   public:
     explicit Vector3D(const double, const double, const double);
     explicit Vector3D(const Point& point1, const Point& point2);
-
     explicit Vector3D();
-    Vector3D(const Vector3D&) = default;
-
-    Vector3D& operator=(const Vector3D& ) = default;
 
     bool isModulusUnity() const;
 
@@ -60,7 +56,7 @@ namespace entities {
     bool isZero() const;
     bool isParallel(const Vector3D &) const;
     bool isAntiparallel(const Vector3D & rhs) const;
-    
+
     friend std::ostream &operator<<(std::ostream &, const Vector3D &);
     
 };

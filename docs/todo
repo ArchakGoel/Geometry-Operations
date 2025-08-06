@@ -4,39 +4,41 @@ Code specific:
     1. Check what type of functions should go in line in header and what not. For example, point const'r.-- simple returns should go inline
     2. Method of getting angle betweeen vectors.
     3. Cmake.
-    4. MathUtils for isEqual using precision. Very urgent for all == operators.***
-    5. Forward declaration can be used everywhere. Check if worth the advantage other than for resolving circular dependency.
-    6. There is no need for custom definitions of the famous 5. It was only done for practice. Remove as much as possible with a note. More custom operators lead to more bugs.
+    4. MathUtils for isEqual using precision. Very urgent for all == operators. DONE
+    5. Forward declaration can be used everywhere. Check if worth the advantage other than for resolving circular dependency. DONE
+    6. There is no need for custom definitions of the famous 5. It was only done for practice. Remove as much as possible with a note. More custom operators lead to more bugs. DONE
+    7. Check constexpr need even in getters in Scott's book.
+    8. Check =default guidelines in Scott's book.
    
     ##Vector Class:
-    7. {} operator - not needed. Works for vector3D{}
-    8.  fix the return issues with copy constr'. Check Scott Meyer's advice on removing explicit from copy const'r.
-    9.  = operator make default. Done
-    10. Remove << from friend.
-    11. Advantage of Template over keeping just double.
-    12. Add precision comparison in all places in class where needed. Done 
-    13. If two vectors are parallel or antiparallel.
+    9. {} operator - not needed. Works for vector3D{}
+    10. fix the return issues with copy constr'. Check Scott Meyer's advice on removing explicit from copy const'r.
+    11. = operator make default. Done
+    12. Remove << from friend.
+    13. Advantage of Template over keeping just double.
+    14. Add precision comparison in all places in class where needed. Done 
+    15. If two vectors are parallel or antiparallel.
 
     ##Vector and Point common stuff for base class:
-    14. == operator
-    15. getters
-    16. != operators
-    17. + operators
-    18. - operator
-    19. * scalar multiplier.
-    20. NOT isZero(). zero point is origin.
-    21. [] opeartor
-    22. osstream
+    16. == operator
+    17. getters
+    18. != operators
+    19. + operators
+    20. - operator
+    21. * scalar multiplier.
+    22. NOT isZero(). zero point is origin.
+    23. [] opeartor
+    24. osstream
 
     ##Line Class:
-    23. Define edge, for 2 points.
-    24. change to getDirection1To2() and getDirection2To1();
-    25. == operator here. done
-    26. should = be made private? as two same lines would be inconsistent geometry. Same for point.
+    25. Define edge, for 2 points.
+    26. change to getDirection1To2() and getDirection2To1();
+    27. == operator here. done
+    28. should = be made private? as two same lines would be inconsistent geometry. Same for point.
 
     ##JSONS:
-    27. change shell to cppbuild again.
-    28. Remove //namespace in automatic clang format.
+    29. change shell to cppbuild again.
+    30. Remove //namespace in automatic clang format.
 
 
     ##Tests:

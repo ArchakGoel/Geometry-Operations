@@ -24,7 +24,9 @@ namespace GeomUtils {
 
       void calculateCross(const Line &, const Line &);
 
-      void calculateDot(const Line &, const Line &) { return; }
+      void calculateDot(const Line &, const Line &) {
+        throw std::runtime_error("dot product not implemented");
+      }
 
     public:
       CrossAndDotCalculator(const Line &line1, const Line &line2,
