@@ -19,6 +19,7 @@
               "src/Line.cpp",
               "src/Plane.cpp",
               "src/GeomUtils.cpp",
+              "src/MathUtils.cpp",
               "-o", "build/main"
             ],
             "options": {
