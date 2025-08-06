@@ -58,6 +58,7 @@ namespace entities {
     void normalize();
 
     bool isZero() const;
+    bool isParallel(const Vector3D &) const;
 
     friend std::ostream &operator<<(std::ostream &, const Vector3D &);
   };

@@ -50,7 +50,7 @@ namespace entities {
   }
 
   Vector3D Vector3D::operator*(const double scalar) const {
-    return (Vector3D(x * scalar, y * scalar, z * scalar));
+    return Vector3D(x * scalar, y * scalar, z * scalar);
   }
 
   Vector3D Vector3D::operator/(const double scalar) const {
@@ -69,7 +69,7 @@ namespace entities {
     auto xComponent = (y * rhs.z - z * rhs.y);
     auto yComponent = -(x * rhs.z - z * rhs.x);
     auto zComponent = (x * rhs.y - y * rhs.x);
-    return (Vector3D(xComponent, yComponent, zComponent));
+    return Vector3D(xComponent, yComponent, zComponent);
   }
 
   Vector3D Vector3D::normalized() const {
@@ -86,7 +86,7 @@ namespace entities {
   double Vector3D::calculateModulus() {
     return (std::sqrt(std::pow(x, 2) + std::pow(y, 2) + std::pow(z, 2)));
   }
-  
+
   void Vector3D::normalize() {
     if (!MathUtils::isZero(modulus)) {
       x = x / modulus;
@@ -97,9 +97,18 @@ namespace entities {
   }
 
   bool Vector3D::isZero() const {
-    return (MathUtils::isZero(x, precision::Math::EPSILON) &&
-            MathUtils::isZero(y, precision::Math::EPSILON) &&
-            MathUtils::isZero(z, precision::Math::EPSILON));
+    return (MathUtils::isZero(x) && MathUtils::isZero(y) &&
+            MathUtils::isZero(z));
+  }
+
+  bool Vector3D::isParallel(const Vector3D &rhs) const {
+
+    // cross prod 0 && dot prod 1
+    if (!rhs.isZero() && !this->isZero()) {
+      return this->cross(rhs).isZero() && MathUtils::isEqual(this->dot(rhs), 1);
+    } else {
+      throw std::runtime_error("this vector or input is a zero vector\n");
+    }
   }
 
   std::ostream &operator<<(std::ostream &os, const Vector3D &object) {

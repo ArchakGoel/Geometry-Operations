@@ -15,27 +15,28 @@ Code specific:
     10. Remove << from friend.
     11. Advantage of Template over keeping just double.
     12. Add precision comparison in all places in class where needed. Done 
+    13. If two vectors are parallel or antiparallel.
 
     ##Vector and Point common stuff for base class:
-    13. == operator
-    14. getters
-    15. != operators
-    16. + operators
-    17. - operator
-    18. * scalar multiplier.
-    19. NOT isZero(). zero point is origin.
-    20. [] opeartor
-    21. osstream
+    14. == operator
+    15. getters
+    16. != operators
+    17. + operators
+    18. - operator
+    19. * scalar multiplier.
+    20. NOT isZero(). zero point is origin.
+    21. [] opeartor
+    22. osstream
 
     ##Line Class:
-    22. Define edge, for 2 points.
-    23. change to getDirection1To2() and getDirection2To1();
-    24. == operator here.
-    25. should = be made private? as two same lines would be inconsistent geometry. Same for point.
+    23. Define edge, for 2 points.
+    24. change to getDirection1To2() and getDirection2To1();
+    25. == operator here. done
+    26. should = be made private? as two same lines would be inconsistent geometry. Same for point.
 
     ##JSONS:
-    26. change shell to cppbuild again.
-    27. Remove //namespace in automatic clang format.
+    27. change shell to cppbuild again.
+    28. Remove //namespace in automatic clang format.
 
 
     ##Tests:
@@ -49,8 +50,9 @@ Code specific:
     ##GeomUtils:
     22. Think again if its better software to put line utility operations in line class.
     23. If Line and Vector and other entities leave GeomUtils such that their includes are not needed. Move isEqual to GeomUtils with forward declarations.
+    24. 
 
     ##MathUtils:
-    24. Considering renaming to GeometryComparison
+    25. Considering renaming to GeometryComparison
 
     Reading/Concepts:

@@ -12,21 +12,19 @@ namespace entities {
 
     auto signedDistance = Plane::signedDistanceFromPlane(point);
 
-    return !(
-        std::fabs(signedDistance < std::numeric_limits<double>::epsilon()) ||
-        std::signbit(signedDistance));
+    return (!MathUtils::isZero(signedDistance) && (signedDistance > 0));
   }
 
   double Plane::signedDistanceFromPlane(const Point &point) const {
 
     Vector3D planeToPoint(this->point, point);
 
-    return (planeToPoint.dot(this->normal));
+    return planeToPoint.dot(this->normal);
   }
 
   double Plane::distanceFromPlane(const Point &point) const {
 
-    return (std::fabs(signedDistanceFromPlane(point)));
+    return std::abs(signedDistanceFromPlane(point));
   }
 
   Point Plane::projectionOnPlane(const Point &point) const {
@@ -39,8 +37,8 @@ namespace entities {
 
   bool Plane::operator==(const Plane &plane) const {
 
-    return ((this->normal.cross(plane.getNormal()).isZero()) &&
-            (std::fabs(Vector3D(this->point, plane.point).dot(this->normal)) <
-             precision::CAD::LINEAR));
+    return (this->normal.isParallel(plane.getNormal()) &&
+            MathUtils::isZero(
+                Vector3D(this->point, plane.point).dot(this->normal)));
   }
 }
