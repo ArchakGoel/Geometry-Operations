@@ -5,8 +5,6 @@ namespace entities {
 
   class Vector3D;
 
-  // todo: 1. make a 3D operator only base class for point and vector
-  // common. todo: 2. Point copy operator non explicit.
   class Point {
     double x, y, z;
 
@@ -15,7 +13,6 @@ namespace entities {
         : x(x), y(y), z(z) {};
     explicit Point() : x(0.0), y(0.0), z(0.0) {};
 
-    // todo: use precision here.
     bool operator==(const Point &rhs) const {
       return (MathUtils::isEqual(*this, rhs));
     }

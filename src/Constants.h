@@ -1,14 +1,14 @@
 #pragma once
-#include <cmath>
+#include <limits>
 
 namespace precision{
     namespace CAD{
 
-        const double LINEAR = 1.0e-7;
-        const double ANGULAR = 1.0e-12;
+        inline constexpr double LINEAR = 1.0e-7;
+        inline const double ANGULAR = 1.0e-12;
 
     }
     namespace Math{
-        double EPSILON = std::numeric_limits<double>::epsilon();
+        inline constexpr double EPSILON = std::numeric_limits<double>::epsilon();
     }
 }
