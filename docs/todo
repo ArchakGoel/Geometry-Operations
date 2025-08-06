@@ -11,31 +11,31 @@ Code specific:
     ##Vector Class:
     7. {} operator - not needed. Works for vector3D{}
     8.  fix the return issues with copy constr'. Check Scott Meyer's advice on removing explicit from copy const'r.
-    9.  = operator make default.
+    9.  = operator make default. Done
     10. Remove << from friend.
     11. Advantage of Template over keeping just double.
-    12. Add precision for isModulus comparison.
+    12. Add precision comparison in all places in class where needed. Done 
 
     ##Vector and Point common stuff for base class:
-    1. == operator
-    2. getters
-    3. != operators
-    4. + operators
-    5. - operator
-    6. * scalar multiplier.
-    7. NOT isZero(). zero point is origin.
-    8. [] opeartor
-    9. osstream
+    13. == operator
+    14. getters
+    15. != operators
+    16. + operators
+    17. - operator
+    18. * scalar multiplier.
+    19. NOT isZero(). zero point is origin.
+    20. [] opeartor
+    21. osstream
 
     ##Line Class:
-    10. Define edge, for 2 points.
-    11. change to getDirection1To2() and getDirection2To1();
-    12. == operator here.
-    13. should = be made private? as two same lines would be inconsistent geometry. Same for point.
+    22. Define edge, for 2 points.
+    23. change to getDirection1To2() and getDirection2To1();
+    24. == operator here.
+    25. should = be made private? as two same lines would be inconsistent geometry. Same for point.
 
     ##JSONS:
-    1.  change shell to cppbuild again.
-    2.  Remove //namespace in automatic clang format.
+    26. change shell to cppbuild again.
+    27. Remove //namespace in automatic clang format.
 
 
     ##Tests:
@@ -49,5 +49,8 @@ Code specific:
     ##Geomutils:
     22. Think again if its better software to put line utility operations in line class.
     23. If Line and Vector and other entities leave GeomUtils such that their includes are not needed. Move isEqual to GeomUtils with forward declarations.
+
+    ##MathUtils:
+    24. Considering renaming to GeometryComparison
 
     Reading/Concepts:

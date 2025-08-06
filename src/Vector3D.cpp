@@ -1,5 +1,6 @@
 #include "Vector3D.h"
 #include "Point.h"
+#include "MathUtils.h"
 
 namespace entities {
   //todo: make modulus optional or through separate method as its expensive.
@@ -35,13 +36,13 @@ namespace entities {
   Vector3D Vector3D::operator+(const Vector3D &rhs) const {
     return Vector3D(x + rhs.getX(), y + rhs.getY(), z + rhs.getZ());
   }
-  //todo: use precision
+
   bool Vector3D::operator==(const Vector3D &rhs) const {
-    return ((x == rhs.x) && (y == rhs.y) && (z == rhs.z));
+    return MathUtils::isEqual(*this, rhs);
   }
 
   bool Vector3D::operator!=(const Vector3D &rhs) const {
-    return ((x != rhs.x) || (y != rhs.y) || (z != rhs.z));
+    return !(*this==rhs);
   }
 
   Vector3D Vector3D::operator*(const double scalar) const {
@@ -49,7 +50,7 @@ namespace entities {
   }
 
   Vector3D Vector3D::operator/(const double scalar) const {
-    if (scalar != 0) {
+    if (!MathUtils::isZero(scalar)) {
       return (Vector3D(x / scalar, y / scalar, z / scalar));
     } else {
       throw std::runtime_error("attempting to divide by zero\n");
@@ -71,7 +72,7 @@ namespace entities {
     if (isNormalized) {
       return Vector3D(*this);
     }
-    if (modulus != 0) {
+    if (!MathUtils::isZero(modulus)) {
       return Vector3D(x / modulus, y / modulus, z / modulus);
     } else {
       throw std::runtime_error("modulus is zero, cannot normalize\n");
@@ -82,7 +83,7 @@ namespace entities {
     return (std::sqrt(std::pow(x, 2) + std::pow(y, 2) + std::pow(z, 2)));
   }
   void Vector3D::normalize() {
-    if (modulus != 0) {
+    if (!MathUtils::isZero(modulus)) {
       x = x / modulus;
       y = y / modulus;
       z = z / modulus;

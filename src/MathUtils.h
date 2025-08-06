@@ -6,6 +6,8 @@
   }
 namespace MathUtils {
 
+  bool isZero(const double a, const double epsilon = precision::Math::EPSILON);
+
   bool isEqual(const double a, const double b,
                         const double epsilon = precision::Math::EPSILON);
 

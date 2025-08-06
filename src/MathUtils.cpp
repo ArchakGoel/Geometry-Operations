@@ -4,6 +4,9 @@
 
 namespace MathUtils {
 
+  bool isZero(const double a, const double epsilon) {
+    return std::abs(a) < epsilon;
+  }
   bool isEqual(const double a, const double b, const double epsilon) {
     return (std::abs(b - a) <= epsilon);
   }
