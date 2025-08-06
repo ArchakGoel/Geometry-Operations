@@ -103,14 +103,16 @@ namespace entities {
 
   bool Vector3D::isParallel(const Vector3D &rhs) const {
 
-    // cross prod 0 && dot prod 1
     if (!rhs.isZero() && !this->isZero()) {
-      return this->cross(rhs).isZero() && MathUtils::isEqual(this->dot(rhs), 1);
+      return this->cross(rhs).isZero() && MathUtils::isPositive(this->dot(rhs));
     } else {
       throw std::runtime_error("this vector or input is a zero vector\n");
     }
   }
 
+  bool Vector3D::isAntiparallel(const Vector3D &rhs) const {
+      return this->cross(rhs).isZero() && MathUtils::isNegative(this->dot(rhs));
+  }
   std::ostream &operator<<(std::ostream &os, const Vector3D &object) {
     os << "vector coordinates are: "
           "("

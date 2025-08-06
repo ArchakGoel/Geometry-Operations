@@ -59,8 +59,10 @@ namespace entities {
 
     bool isZero() const;
     bool isParallel(const Vector3D &) const;
-
+    bool isAntiparallel(const Vector3D & rhs) const;
+    
     friend std::ostream &operator<<(std::ostream &, const Vector3D &);
-  };
+    
+};
 
 }
