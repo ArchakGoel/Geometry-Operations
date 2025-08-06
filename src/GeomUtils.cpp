@@ -41,12 +41,12 @@ namespace GeomUtils {
 
     void IntersectionChecker::checkIntersectionExistence() {
       if ((data->getLine1CrossLine2().isZero()) &&
-          (data->getaTocCrossLine1().isZero())) {
+          !(data->getaTocCrossLine1().isZero())) { // parallel but not aligned.
         intersects = false;
         return;
       }
 
-      if (std::fabs(data->getLine1CrossLine2().dot(data->getVectorAToC())) >
+      if (std::abs(data->getLine1CrossLine2().dot(data->getVectorAToC())) >
           precision::CAD::LINEAR) // skew
       {
         intersects = false;
@@ -61,23 +61,21 @@ namespace GeomUtils {
         return;
       }
 
-      if (data->getLine1CrossLine2().getX() > precision::CAD::LINEAR) {
+      if (!MathUtils::isZero(data->getLine1CrossLine2().getX())) {
 
         paramLine1 = data->getaTocCrossLine2().getX() /
                      data->getLine1CrossLine2().getX();
         paramLine2 = data->getaTocCrossLine1().getX() /
                      data->getLine1CrossLine2().getX();
 
-      } else if (data->getLine1CrossLine2().getY() >
-                 precision::CAD::LINEAR) {
+      } else if (!MathUtils::isZero(data->getLine1CrossLine2().getY())) {
 
         paramLine1 = data->getaTocCrossLine2().getY() /
                      data->getLine1CrossLine2().getY();
         paramLine2 = data->getaTocCrossLine1().getY() /
                      data->getLine1CrossLine2().getY();
 
-      } else if (data->getLine1CrossLine2().getZ() >
-                 precision::CAD::LINEAR) {
+      } else if (!MathUtils::isZero(data->getLine1CrossLine2().getZ())) {
 
         paramLine1 = data->getaTocCrossLine2().getZ() /
                      data->getLine1CrossLine2().getZ();
