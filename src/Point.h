@@ -1,4 +1,5 @@
 #pragma once
+#include "MathUtils.h"
 
 namespace entities {
 
@@ -16,7 +17,7 @@ namespace entities {
 
     // todo: use precision here.
     bool operator==(const Point &rhs) const {
-      return ((x == rhs.x) && (y == rhs.y) && (z == rhs.z));
+      return (MathUtils::isEqual(*this, rhs));
     }
     Point operator+(const Point &rhs) const {
       return Point(x + rhs.x, y + rhs.y, z + rhs.z);

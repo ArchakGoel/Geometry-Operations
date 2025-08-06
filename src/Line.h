@@ -3,7 +3,7 @@
 
 #include "Point.h"
 #include "Vector3D.h"
-
+#include "MathUtils.h"
 namespace entities {
 
   
@@ -11,17 +11,22 @@ namespace entities {
 
     Point vertex1, vertex2;
     Vector3D direction1To2;
+    //Vector3D direction2To1;
 
   public:
     explicit Line(const Point _vertex1, const Point _vertex2);
 
-    Line (const Line&);
+    Line (const Line&) = default;
 
-    Vector3D getDirection() const;
+    bool operator==(const Line& rhs) const;
+    
+    bool operator!=(const Line& rhs) const;
 
-  Point getVertex1() const { return vertex1; }
-  Point getVertex2() const { return vertex2; }
+    Vector3D getDirection() const { return direction1To2; }
+    //Vector3D getDirection1To2() const { return direction1To2; }
+    //Vector3D getDirection2To1() const { return direction2To1; }
+    Point getVertex1() const { return vertex1; }
+    Point getVertex2() const { return vertex2; }
   };
 } 
 
-//todo: change to getDirection1To2() and getDirection2To1();

@@ -6,7 +6,7 @@ Code specific:
     3. Cmake.
     4. MathUtils for isEqual using precision. Very urgent for all == operators.***
     5. Forward declaration can be used everywhere. Check if worth the advantage other than for resolving circular dependency.
-    6. There is no need for custom operators. It was only done for practice. Remove as much as possible with a note. More custom operators lead to more bugs.
+    6. There is no need for custom definitions of the famous 5. It was only done for practice. Remove as much as possible with a note. More custom operators lead to more bugs.
    
     ##Vector Class:
     7. {} operator - not needed. Works for vector3D{}
@@ -46,7 +46,7 @@ Code specific:
     21. Remove is a inheritance from vector. As a point is not a vector. Make composition. Return a vector form if needed, by passing origin and point. -- done.
 
 
-    ##Geomutils:
+    ##GeomUtils:
     22. Think again if its better software to put line utility operations in line class.
     23. If Line and Vector and other entities leave GeomUtils such that their includes are not needed. Move isEqual to GeomUtils with forward declarations.
 

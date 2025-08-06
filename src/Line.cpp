@@ -8,14 +8,13 @@ namespace entities {
                            (vertex2.getY() - vertex1.getY()),
                            (vertex2.getZ() - vertex1.getZ()))) {};
 
-  Line::Line(const Line &lineObject)
-      : vertex1(lineObject.getVertex1()), vertex2(lineObject.getVertex2()),
-        direction1To2(lineObject.getDirection()) {};
+  bool Line::operator==(const Line& rhs) const{
+      return (MathUtils::isEqual(vertex1, rhs.vertex1) && MathUtils::isEqual(vertex2, rhs.vertex2)) ||
+              (MathUtils::isEqual(vertex1, rhs.vertex2) && MathUtils::isEqual(vertex2, rhs.vertex1));
+    }
 
-  Vector3D Line::getDirection() const {
-    return Vector3D(direction1To2);
-  } 
-    // Vector3D's copy constr'r being explicit is stopping from returning it
-    // directly!
+  bool Line::operator!=(const Line& rhs) const{
+    return !(*this==rhs);
+  }
 
 }
