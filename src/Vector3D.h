@@ -30,7 +30,7 @@ namespace entities {
 
     Vector3D& operator=(const Vector3D& ) = default;
 
-    bool isModulusUnity() const { return (modulus == 1.0); }
+    bool isModulusUnity() const;
 
     double getX() const { return x; }
 
@@ -57,11 +57,7 @@ namespace entities {
     Vector3D normalized() const;
     void normalize();
 
-    bool isZero() const {
-    return (fabs(x) < precision::CAD::LINEAR &&
-            fabs(y) < precision::CAD::LINEAR &&
-            fabs(z) < precision::CAD::LINEAR);
-  }
+    bool isZero() const;
 
     friend std::ostream &operator<<(std::ostream &, const Vector3D &);
   };

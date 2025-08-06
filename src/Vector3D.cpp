@@ -1,9 +1,9 @@
 #include "Vector3D.h"
-#include "Point.h"
 #include "MathUtils.h"
+#include "Point.h"
 
 namespace entities {
-  //todo: make modulus optional or through separate method as its expensive.
+  // todo: make modulus optional or through separate method as its expensive.
   Vector3D::Vector3D(const double x, const double y, const double z)
       : x(x), y(y), z(z), modulus(calculateModulus()),
         isNormalized(isModulusUnity()) {}
@@ -29,6 +29,10 @@ namespace entities {
     }
   }
 
+  bool Vector3D::isModulusUnity() const {
+    return MathUtils::isEqual(modulus, 1);
+  }
+
   Vector3D Vector3D::operator-(const Vector3D &rhs) const {
     return Vector3D(x - rhs.getX(), y - rhs.getY(), z - rhs.getZ());
   }
@@ -42,7 +46,7 @@ namespace entities {
   }
 
   bool Vector3D::operator!=(const Vector3D &rhs) const {
-    return !(*this==rhs);
+    return !(*this == rhs);
   }
 
   Vector3D Vector3D::operator*(const double scalar) const {
@@ -82,6 +86,7 @@ namespace entities {
   double Vector3D::calculateModulus() {
     return (std::sqrt(std::pow(x, 2) + std::pow(y, 2) + std::pow(z, 2)));
   }
+  
   void Vector3D::normalize() {
     if (!MathUtils::isZero(modulus)) {
       x = x / modulus;
@@ -89,6 +94,12 @@ namespace entities {
       z = z / modulus;
       isNormalized = true;
     }
+  }
+
+  bool Vector3D::isZero() const {
+    return (MathUtils::isZero(x, precision::Math::EPSILON) &&
+            MathUtils::isZero(y, precision::Math::EPSILON) &&
+            MathUtils::isZero(z, precision::Math::EPSILON));
   }
 
   std::ostream &operator<<(std::ostream &os, const Vector3D &object) {
