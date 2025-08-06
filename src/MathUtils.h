@@ -1,10 +1,14 @@
 #pragma once
 #include "Constants.h"
   namespace entities {
-      class Vector3D;  // forward declaration
-      class Point;     // forward declaration
+      class Vector3D; 
+      class Point;     
   }
 namespace MathUtils {
+
+  bool isPositive(const double a, const double epsilon = precision::Math::EPSILON);
+
+  bool isNegative(const double a, const double epsilon = precision::Math::EPSILON);
 
   bool isZero(const double a, const double epsilon = precision::Math::EPSILON);
 

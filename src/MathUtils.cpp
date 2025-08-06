@@ -4,6 +4,10 @@
 
 namespace MathUtils {
 
+  bool isPositive(const double a, const double epsilon) { return a > epsilon; }
+
+  bool isNegative(const double a, const double epsilon) { return a < -epsilon; }
+
   bool isZero(const double a, const double epsilon) {
     return std::abs(a) < epsilon;
   }
