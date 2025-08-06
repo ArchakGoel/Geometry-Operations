@@ -4,10 +4,8 @@
 #include "Line.h"
 #include <optional>
 
+using namespace entities;
 namespace GeomUtils {
-
-  using namespace entities;
-
   namespace TwoLines {
     // note: can make a vector<Line> input instead of separate lines to avoid
     // interchanging line1 with line2

@@ -1,26 +1,25 @@
 #pragma once
 #include "Constants.h"
-
+  namespace entities {
+      class Vector3D;  // forward declaration
+      class Point;     // forward declaration
+  }
 namespace MathUtils {
 
-  double isEqual(double a, double b,
-                 double epsilon = precision::Math::EPSILON) {
-    return (std::abs(b - a) <= epsilon);
-  };
-  
-  double isLinearEqual(double a, double b,
-                       double epsilon = precision::CAD::LINEAR) {
-    return (MathUtils::isEqual(a, b, epsilon));
-  };
+  bool isEqual(const double a, const double b,
+                        const double epsilon = precision::Math::EPSILON);
 
-  double isAngularEqual(double a, double b,
-                        double epsilon = precision::CAD::ANGULAR) {
-    return (MathUtils::isEqual(a, b, epsilon));
-  };
+  bool isLinearEqual(const double a, const double b,
+                        const double epsilon = precision::CAD::LINEAR);
 
-  double round(float value, int precision = 3) {
-    int multiplier = std::pow(10, precision);
-    value = (int)(value * multiplier + .5);
-    return (double)value / multiplier;
-  }
+  bool isAngularEqual(const double a, const double b,
+                    const double epsilon = precision::CAD::ANGULAR);
+
+  bool isEqual(const entities::Vector3D& vector1, const entities::Vector3D& vector2, 
+                double tolerance = precision::CAD::LINEAR);
+
+  bool isEqual(const entities::Point& point1, const entities::Point& point2, 
+                double tolerance = precision::CAD::LINEAR);
+
+  double round(float value, const int precision = 3);
 };
