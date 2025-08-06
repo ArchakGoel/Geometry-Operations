@@ -40,7 +40,7 @@ namespace GeomUtils {
 
       // 1. areSkew
       // 2. areParallel
-      // 3, areAntiparallel
+      // 3. areAntiparallel
       // 4. areCoincident
       // 5. areCollinear
 
