@@ -5,4 +5,5 @@
 4. Use smart pointers. Check customer deleters for arrays and such. Declare and initialize in separate line without clubbing with other functions.
 5. Use forward declarations when possible.
 6. Keep methods inline in .h file when there is only 1 line.
+7. Keep non-util headers or all headers forward declaration if possible in all util .h files. Even if at the cost of leaving inlining. This is to avoid circular includes problem.
 

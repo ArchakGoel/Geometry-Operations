@@ -1,6 +1,6 @@
 Code specific:
 
-    General:
+    ##General:
     1. Check what type of functions should go in line in header and what not. For example, point const'r.-- simple returns should go inline
     2. Method of getting angle betweeen vectors.
     3. Cmake.
@@ -8,29 +8,46 @@ Code specific:
     5. Forward declaration can be used everywhere. Check if worth the advantage other than for resolving circular dependency.
     6. There is no need for custom operators. It was only done for practice. Remove as much as possible with a note. More custom operators lead to more bugs.
    
-    Vector Class:
-    6. {} operator - not needed. Works for vector3D{}
-    7.  fix the return issues with copy constr'. Check Scott Meyer's advice on removing explicit from copy const'r.
-    8.  = operator make default.
-    9.  Remove << from friend.
-    10. Advantage of Template over keeping just double.
-    11. Add precision for isModulus comparison.
+    ##Vector Class:
+    7. {} operator - not needed. Works for vector3D{}
+    8.  fix the return issues with copy constr'. Check Scott Meyer's advice on removing explicit from copy const'r.
+    9.  = operator make default.
+    10. Remove << from friend.
+    11. Advantage of Template over keeping just double.
+    12. Add precision for isModulus comparison.
 
-    Line Class:
-    12. Check line definition: 2 pts or 1 pt and direction.
-    13. Define edge, for 2 points.
+    ##Vector and Point common stuff for base class:
+    1. == operator
+    2. getters
+    3. != operators
+    4. + operators
+    5. - operator
+    6. * scalar multiplier.
+    7. NOT isZero(). zero point is origin.
+    8. [] opeartor
+    9. osstream
 
-    JSONS:
-    14. change shell to cppbuild again.
-    15. Remove //namespace in automatic clang format.
+    ##Line Class:
+    10. Define edge, for 2 points.
+    11. change to getDirection1To2() and getDirection2To1();
+    12. == operator here.
+    13. should = be made private? as two same lines would be inconsistent geometry. Same for point.
+
+    ##JSONS:
+    1.  change shell to cppbuild again.
+    2.  Remove //namespace in automatic clang format.
 
 
-    Tests:
+    ##Tests:
     19. Add Gtests.
     20. Add tests example: simple line intersections case: yes, skew, coincident, overlapping. Maybe 1 cross component zero, r or s > 1 and < 0.
 
-    Point Class:
+    ##Point Class:
     21. Remove is a inheritance from vector. As a point is not a vector. Make composition. Return a vector form if needed, by passing origin and point. -- done.
 
+
+    ##Geomutils:
+    22. Think again if its better software to put line utility operations in line class.
+    23. If Line and Vector and other entities leave GeomUtils such that their includes are not needed. Move isEqual to GeomUtils with forward declarations.
 
     Reading/Concepts:

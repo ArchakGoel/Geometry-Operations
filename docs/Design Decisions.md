@@ -22,6 +22,7 @@ Line Class
 
 GeomUtils namespace
 
+
 1. Functions common to lines, planes and other entities for geometric operations are kept here. Its very complicated to keep them in classes of individual entities. For example, in a member fucntion based approach, point to plane distance goes in point or plane class or both?
 2. Getter methods are set to inline without the keyword. Its inline by default.
 3. Re-start a new {} under the last level namespace for separation of definitions belonging to a different class in a .cpp file. This is for ease of readability.
@@ -32,7 +33,8 @@ GeomUtils namespace
 
 MathUtils namespace
 
-1. Kept only .h file as only 1 method longer than 1 line.
+1. Used forward declarations to avoid circular dependency.
+2. Kept isEqual() here instead of placing under Vector3D and Point class, as these might be needed by other classes too which may need to compare the Points or Vectors 
 
 
 Point Class
