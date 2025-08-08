@@ -1,7 +1,7 @@
 #pragma once
 #include "MathUtils.h"
 
-namespace entities {
+namespace Entities {
 
   class Vector3D;
 

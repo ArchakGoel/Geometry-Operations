@@ -1,7 +1,7 @@
 #pragma once
 #include "Point.h"
 #include "Vector3D.h"
-namespace entities {
+namespace Entities {
 
   class Plane {
 

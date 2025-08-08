@@ -4,9 +4,7 @@
 #include "Point.h"
 #include "Vector3D.h"
 #include "MathUtils.h"
-namespace entities {
-
-  
+namespace Entities {
   class Line {
 
     Point vertex1, vertex2;
@@ -15,8 +13,6 @@ namespace entities {
 
   public:
     explicit Line(const Point _vertex1, const Point _vertex2);
-
-    Line (const Line&) = default;
 
     bool operator==(const Line& rhs) const;
     

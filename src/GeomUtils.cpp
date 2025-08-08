@@ -3,7 +3,7 @@
 
 namespace GeomUtils {
 
-  using namespace entities;
+  using namespace Entities;
 
   namespace TwoLines {
 
@@ -46,7 +46,8 @@ namespace GeomUtils {
         return;
       }
 
-      if (!MathUtils::isZero(data->getLine1CrossLine2().dot(data->getVectorAToC()))) // skew
+      if (!MathUtils::isZero(
+              data->getLine1CrossLine2().dot(data->getVectorAToC()))) // skew
       {
         intersects = false;
         return;

@@ -6,7 +6,7 @@
 #include "Constants.h"
 
 
-namespace entities {
+namespace Entities {
 
    // todo: make vector class copy and move operator if default is not enough.
   class Point;

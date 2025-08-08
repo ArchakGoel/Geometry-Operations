@@ -1,6 +1,6 @@
 #include "Line.h"
 
-namespace entities {
+namespace Entities {
 
   Line::Line(const Point inputVertex1, const Point inputVertex2){
 

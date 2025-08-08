@@ -1,7 +1,7 @@
 #include "Plane.h"
 #include "GeomUtils.h"
 
-namespace entities {
+namespace Entities {
 
   Plane::Plane(Point point, Vector3D direction)
       : point(point), normal(direction.normalized()) {
