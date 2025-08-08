@@ -11,7 +11,7 @@ namespace Entities {
   public:
     explicit Point(const double x, const double y, const double z)
         : x(x), y(y), z(z) {};
-    explicit Point() : x(0.0), y(0.0), z(0.0) {};
+    Point() : x(0.0), y(0.0), z(0.0) {};
 
     bool operator==(const Point &rhs) const {
       return (MathUtils::isEqual(*this, rhs));

@@ -28,6 +28,7 @@ namespace GeomUtils {
         throw std::runtime_error("dot product not implemented");
       }
 
+      CrossAndDotCalculator();
     public:
       CrossAndDotCalculator(const Line &line1, const Line &line2,
                             bool doCross = true, bool doDot = false);
@@ -60,16 +61,16 @@ namespace GeomUtils {
     //! intersects or not - which will be checked mandatorily in the
     //! constructor.
     class IntersectionChecker {
-      // todo: put check for null lines. make rep for null vectors.
+
       crossAndDotDataPtr data;
       std::optional<Point> intersectionPoint;
       Line line1, line2;
       bool intersects;
-
       double paramLine1, paramLine2;
 
       void checkIntersectionExistence();
 
+      IntersectionChecker();
     public:
       explicit IntersectionChecker(const Line &line1, const Line &line2,
                                    crossAndDotDataPtr crossAndDotData);

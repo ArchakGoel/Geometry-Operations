@@ -11,7 +11,8 @@ namespace Entities {
   public:
 
     explicit Plane(Point point, Vector3D direction);
-    
+    Plane():point(Point()), normal(Vector3D()){};
+
     Point getPoint() const { return point; }
     Vector3D getNormal() const { return Vector3D(normal); }
     double signedDistanceFromPlane(const Point &) const;

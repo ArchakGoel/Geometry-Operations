@@ -8,7 +8,6 @@
 
 namespace Entities {
 
-   // todo: make vector class copy and move operator if default is not enough.
   class Point;
 
   class Vector3D {
@@ -24,7 +23,8 @@ namespace Entities {
   public:
     explicit Vector3D(const double, const double, const double);
     explicit Vector3D(const Point& point1, const Point& point2);
-    explicit Vector3D();
+    Vector3D();
+
 
     bool isModulusUnity() const;
 

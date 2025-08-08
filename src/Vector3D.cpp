@@ -2,14 +2,14 @@
 #include "MathUtils.h"
 #include "Point.h"
 
-namespace entities {
+namespace Entities {
   // todo: make modulus optional or through separate method as its expensive.
   Vector3D::Vector3D(const double x, const double y, const double z)
       : x(x), y(y), z(z), modulus(calculateModulus()),
         isNormalized(isModulusUnity()) {}
 
   Vector3D::Vector3D()
-      : x(0), y(0), z(0), modulus(0), isNormalized(isModulusUnity()) {}
+      : x(0.0), y(0.0), z(0.0), modulus(0.0), isNormalized(false) {}
 
   Vector3D::Vector3D(const Point &point1, const Point &point2)
       : x(point2.getX() - point1.getX()), y(point2.getY() - point1.getY()),

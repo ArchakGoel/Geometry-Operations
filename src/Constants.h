@@ -1,7 +1,7 @@
 #pragma once
 #include <limits>
 
-namespace precision{
+namespace Precision{
     namespace CAD{
 
         inline constexpr double LINEAR = 1.0e-7;

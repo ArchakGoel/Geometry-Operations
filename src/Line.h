@@ -13,6 +13,7 @@ namespace Entities {
 
   public:
     explicit Line(const Point _vertex1, const Point _vertex2);
+    Line():vertex1(Point()), vertex2(Point()), direction1To2(Vector3D()){};
 
     bool operator==(const Line& rhs) const;
     

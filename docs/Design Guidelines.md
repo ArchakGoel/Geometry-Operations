@@ -9,3 +9,5 @@
 6. Use forward declarations when possible.
 7. Keep methods inline in .h file when there is only 1 line.
 8. Keep non-util headers or all headers forward declaration if possible in all util .h files. Even if at the cost of leaving inlining. This is to avoid circular includes problem.
+9. Advantage of Template over keeping just double - Facilitates memory savings for float types while using with other libs. Otherwise not needed here, double is enough.
+10. Default Constructors should be looked into. Prefer to mention for all classes - private or public. Default or custom. As they could be called by compiler with un-initialized data members which can be a hard bug to find.
