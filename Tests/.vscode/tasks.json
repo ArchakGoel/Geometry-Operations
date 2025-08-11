@@ -6,27 +6,27 @@
             "type": "shell",
             "command": "clang++",
             "options": {
-            "cwd": "${workspaceFolder}/Tests"
+                "cwd": "${workspaceFolder}"
             },
             "args": [
                 "-std=c++17",
                 "-Wall",
                 "-Wextra",
-                "-I", "${workspaceFolder}/src", 
+                "-I", "${workspaceFolder:GeometryRoot}/src", 
                 "-I", "/opt/homebrew/opt/googletest/include",
-                "LineIntersectionTests.cpp",
-                "CrossAndDotCalculatorTests.cpp", 
-                "../src/Vector3D.cpp",
-                "../src/Point.cpp",
-                "../src/Line.cpp",
-                "../src/MathUtils.cpp",
-                "../src/GeomUtils.cpp",
+                "${workspaceFolder}/LineIntersectionTests.cpp",
+                "${workspaceFolder}/CrossAndDotCalculatorTests.cpp", 
+                "${workspaceFolder:GeometryRoot}/src/Vector3D.cpp",
+                "${workspaceFolder:GeometryRoot}/src/Point.cpp",
+                "${workspaceFolder:GeometryRoot}/src/Line.cpp",
+                "${workspaceFolder:GeometryRoot}/src/MathUtils.cpp",
+                "${workspaceFolder:GeometryRoot}/src/GeomUtils.cpp",
                 "-L", "/opt/homebrew/opt/googletest/lib",
                 "-lgtest",
                 "-lgtest_main",
                 "-pthread",
                 "-o",
-                "${workspaceFolder}/build/Tests/GeometryOperations/geomUtilsTests"
+                "${workspaceFolder:GeometryRoot}/build/Tests/GeometryOperations/geomUtilsTests"
             ],
             "group": {
                 "kind": "build",
@@ -43,7 +43,7 @@
         {
             "label": "Run Tests",
             "type": "shell", 
-            "command": "./geomUtilsTests",
+            "command":  "${workspaceFolder:GeometryRoot}/build/Tests/GeometryOperations/geomUtilsTests",
             "dependsOn": "Build Tests",
             "group": {
                 "kind": "test",

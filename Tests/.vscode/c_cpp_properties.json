@@ -2,12 +2,11 @@
   "configurations": [
     {
       "name": "Mac",
-      "includePath": [
-        "${workspaceFolder}/src",
-        "${workspaceFolder}/Tests",
-        "${workspaceFolder}/**",
-        "/opt/homebrew/opt/googletest/include"
-      ],
+     "includePath": [
+     "${workspaceFolder:GeometryRoot}/src",
+     "${workspaceFolder}/", // for local test includes
+     "/opt/homebrew/opt/googletest/include"
+    ],
       "defines": [],
       "macFrameworkPath": [
         "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks"
