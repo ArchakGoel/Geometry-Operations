@@ -1,4 +1,4 @@
-# Geometry-Operations (In Works)
+# Geometry-Operations (Works but in Works)
 
 An effort to showcase production quality code for basic 3D vector algebra elements and operations using modern C++. A lot of focus is on clean code, modularity, ease of readability and minimal repitition and simplicity. So you'll see pointers and rule of 3/5 only when extremely necessary or none at all. Designed to be stand-alone. The individual files like Vector3D, Line, Plane, MathUtils etc. can be separated out to use in your code library. Everything is in 3 dimensions. Here is the overall structure:
 
