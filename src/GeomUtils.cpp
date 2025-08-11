@@ -59,7 +59,6 @@ namespace GeomUtils {
           (line1.getVertex2() == line2.getVertex1()) ||
           (line1.getVertex2() == line2.getVertex2())) {
         intersects = true;
-        return;
       }
 
       if (!MathUtils::isZero(data->getLine1CrossLine2().getX())) {

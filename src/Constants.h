@@ -5,7 +5,7 @@ namespace Precision{
     namespace CAD{
 
         inline constexpr double LINEAR = 1.0e-7;
-        inline const double ANGULAR = 1.0e-12;
+        inline constexpr double ANGULAR = 1.0e-12;
 
     }
     namespace Math{
