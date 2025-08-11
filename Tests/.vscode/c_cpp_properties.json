@@ -4,7 +4,7 @@
       "name": "Mac",
      "includePath": [
      "${workspaceFolder:GeometryRoot}/src",
-     "${workspaceFolder}/", // for local test includes
+     "${workspaceFolder}/",
      "/opt/homebrew/opt/googletest/include"
     ],
       "defines": [],

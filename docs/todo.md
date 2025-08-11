@@ -53,6 +53,10 @@
 3. test epsilon is used or not in ` bool isEqual(const Entities::Point &point1, const Entities::Point &point2,
                double epsilon)`
 
+## Tests
+
+1. Make sure overlapping lines are handled correctly for intersection point.
+
 ## Notes
 
 ### Vector and Point common stuff for base class
