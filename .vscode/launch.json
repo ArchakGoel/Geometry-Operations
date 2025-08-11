@@ -5,7 +5,7 @@
             "name": "Debug main",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/main",
+            "program": "${workspaceFolder}/build/MainBuild/main",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
@@ -19,7 +19,7 @@
             "name": "Debug main without build",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/main",
+            "program": "${workspaceFolder}/build/MainBuild/main",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
@@ -29,18 +29,14 @@
             "setupCommands": [],
         },
         {
-            "name": "Debug Unit Tests",
+            "name": "Debug Tests (from root)",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/unitTest",
-            "args": [],
+            "program": "${workspaceFolder}/build/Tests/GeometryOperations/geomUtilsTests",
+            "args": ["--gtest_filter=LineIntersectionTests.PrecisionBoundary"],
             "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
-            "environment": [],
-            "externalConsole": false,
-            "MIMode": "lldb",
-            "setupCommands": [],
-            "preLaunchTask": "Build Unit Tests"
+            "cwd": "${workspaceFolder}/Tests",
+            "MIMode": "lldb"
         }
     ]
 }

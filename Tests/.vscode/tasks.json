@@ -4,12 +4,13 @@
         {
             "label": "Build Tests",
             "type": "shell",
-            "command": "clang++",
+            "command":  "/usr/bin/clang++",
             "options": {
                 "cwd": "${workspaceFolder}"
             },
             "args": [
                 "-std=c++17",
+                "-g",
                 "-Wall",
                 "-Wextra",
                 "-I",
@@ -62,10 +63,10 @@
         {
             "label": "Clear Build Tests",
             "type": "shell",
-            "command": "rm",
+            "command": "bash",
             "args": [
-                "-rf",
-                "${workspaceFolder:GeometryRoot}/build/Tests/GeometryOperations && mkdir -p ${workspaceFolder:GeometryRoot}/build/Tests/GeometryOperations"
+            "-c",
+            "rm -rf \"${workspaceFolder:GeometryRoot}/build/Tests/GeometryOperations\" && mkdir -p \"${workspaceFolder:GeometryRoot}/build/Tests/GeometryOperations\""
             ],
             "group": {
                 "kind": "build",

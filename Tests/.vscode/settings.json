@@ -1,0 +1,18 @@
+// {
+//     "testMate.cpp.test.executables": [
+//         "${workspaceFolder:GeometryRoot}/build/Tests/GeometryOperations/geomUtilsTests"
+//     ],
+//     "testMate.cpp.test.workingDirectory": "${workspaceFolder:GeometryRoot}",
+//     "testMate.cpp.debug.configTemplate": {
+//         "name": "Debug Single Google Test",
+//         "type": "cppdbg",
+//         "request": "launch",
+//         "MIMode": "lldb",
+//         "program": "${exec}",
+//         "args": [
+//             "--gtest_filter=${testName}"
+//         ],
+//         "cwd": "${workspaceFolder:GeometryRoot}/Tests",
+//         "externalConsole": false
+//     }
+// }

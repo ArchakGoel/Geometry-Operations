@@ -20,7 +20,7 @@
               "src/Plane.cpp",
               "src/GeomUtils.cpp",
               "src/MathUtils.cpp",
-              "-o", "build/main"
+              "-o", "build/MainBuild/main"
             ],
             "options": {
               "cwd": "${workspaceFolder}"
@@ -51,7 +51,7 @@
             "command": "bash",
             "args": [
               "-c",
-              "rm -rf build && mkdir -p build"
+              "rm -rf build/MainBuild && mkdir -p build/MainBuild"
             ],
             "options": {
               "cwd": "${workspaceFolder}"
