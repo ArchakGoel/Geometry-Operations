@@ -31,6 +31,7 @@ namespace GeomUtils {
                                                const Line &line2) {
       line1CrossLine2 = line1.getDirection().cross(line2.getDirection());
       aTocCrossLine1 = aToc.cross(line1.getDirection());
+      aTocCrossLine2 = aToc.cross(line2.getDirection());
     }
 
   }
@@ -88,6 +89,8 @@ namespace GeomUtils {
         intersects = false;
         return;
       }
+
+      intersects = true; //remaining cases are for true.
     }
 
     IntersectionChecker::IntersectionChecker(const Line &line1,
