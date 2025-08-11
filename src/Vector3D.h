@@ -36,7 +36,7 @@ namespace Entities {
 
     double getModulus() const { return modulus; }
 
-    const double operator[](size_t) const;
+    double operator[](size_t) const;
 
     Vector3D operator-(const Vector3D &) const;
     Vector3D operator+(const Vector3D &) const;

@@ -7,6 +7,7 @@
 3. Removed custom rule of 5 methods as well as = default for any of them. Less code is good code.
 4. Keep everything in a named or unnamed namespace for avoiding name conflicts.
 5. Keep constructors explicit to avoid implicit conversions which is bug prone.
+6. Initialize all members of every class in a constructor even if default is needed.
 
 ## Vector3D Class
 

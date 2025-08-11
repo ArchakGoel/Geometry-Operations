@@ -2,22 +2,21 @@
 
 ## General
 
-1. Remove explicit from default constructors. *
-2. Initialize all members of every class in a constructor even if default is needed.*
-3. Check what type of functions should go in line in header and what not. For example, point const'r.-- simple returns should go inline
+1. Remove explicit from default constructors. * Done
+2. Initialize all members of every class in a constructor even if default is needed.* Done
+3. Check what type of functions should go inline in header and what not. For example, point const'r.-- simple returns should go inline
 4. Method of getting angle betweeen vectors.
 5. Cmake.
 6. MathUtils for isEqual using precision. Very urgent for all == operators. DONE
 7. Forward declaration can be used everywhere. Check if worth the advantage other than for resolving circular dependency. DONE
 8. There is no need for custom definitions of the famous 5. It was only done for practice. Remove as much as possible with a note. More custom operators lead to more bugs. DONE
-9. Check constexpr need even in getters in Scott's book.
-10. Check =default guidelines in Scott's book.
+9. Separate src and include folders.
 
 ## Vector Class
 
 1. Remove << from friend.
 2. Add precision comparison in all places in class where needed. Done.
-3. If two vectors are parallel or antiparallel.
+3. If two vectors are parallel or antiparallel. Can wrap around GeomUtils
 
 ## Line Class
 
@@ -29,17 +28,17 @@
 
 ## JSONS
 
-1. change shell to cppbuild again.
+1. change shell to cppbuild again. DONE
 2. Remove //namespace in automatic clang format.
 
-## Tests
+## Tests*
 
 1. Add Gtests.
 2. Add tests example: simple line intersections case: yes, skew, coincident, overlapping. Maybe 1 cross component zero, r or s > 1 and < 0.
 
 ## Point Class
 
-1. Remove is a inheritance from vector. As a point is not a vector. Make composition. Return a vector form if needed, by passing origin and point. -- done.
+1. Remove is a inheritance from vector. As a point is not a vector. Make composition. Return a vector form if needed, by passing origin and point. DONE
 
 ## GeomUtils
 
@@ -50,6 +49,9 @@
 ## MathUtils
 
 1. Considering renaming to GeometryComparison
+2. isNotEqual in MathUtils.
+3. test epsilon is used or not in ` bool isEqual(const Entities::Point &point1, const Entities::Point &point2,
+               double epsilon)`
 
 ## Notes
 

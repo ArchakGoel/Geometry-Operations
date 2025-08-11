@@ -62,11 +62,11 @@ namespace GeomUtils {
     //! constructor.
     class IntersectionChecker {
 
-      crossAndDotDataPtr data;
-      std::optional<Point> intersectionPoint;
       Line line1, line2;
+      crossAndDotDataPtr data;
       bool intersects;
       double paramLine1, paramLine2;
+      std::optional<Point> intersectionPoint;
 
       void checkIntersectionExistence();
 

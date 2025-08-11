@@ -16,7 +16,7 @@ namespace Entities {
         z(point2.getZ() - point1.getZ()), modulus(calculateModulus()),
         isNormalized(isModulusUnity()) {}
 
-  const double Vector3D::operator[](size_t index) const {
+  double Vector3D::operator[](size_t index) const {
     switch (index) {
     case 0:
       return x;
