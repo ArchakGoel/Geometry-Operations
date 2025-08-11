@@ -1,0 +1,60 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Tests",
+            "type": "shell",
+            "command": "clang++",
+            "options": {
+            "cwd": "${workspaceFolder}/Tests"
+            },
+            "args": [
+                "-std=c++17",
+                "-Wall",
+                "-Wextra",
+                "-I", "${workspaceFolder}/src", 
+                "-I", "/opt/homebrew/opt/googletest/include",
+                "LineIntersectionTests.cpp",
+                "CrossAndDotCalculatorTests.cpp", 
+                "../src/Vector3D.cpp",
+                "../src/Point.cpp",
+                "../src/Line.cpp",
+                "../src/MathUtils.cpp",
+                "../src/GeomUtils.cpp",
+                "-L", "/opt/homebrew/opt/googletest/lib",
+                "-lgtest",
+                "-lgtest_main",
+                "-pthread",
+                "-o",
+                "${workspaceFolder}/build/Tests/GeometryOperations/geomUtilsTests"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": "$gcc"
+        },
+        {
+            "label": "Run Tests",
+            "type": "shell", 
+            "command": "./geomUtilsTests",
+            "dependsOn": "Build Tests",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            }
+        }
+    ]
+}

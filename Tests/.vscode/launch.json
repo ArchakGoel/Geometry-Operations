@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Tests",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/Tests/GeometryOperations/geomUtilsTests",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/Tests",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "setupCommands": [],
+            "preLaunchTask": "Build Tests"
+        }
+    ]
+}

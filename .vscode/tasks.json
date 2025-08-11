@@ -46,23 +46,6 @@
             }
         },
         {
-            "label": "Build Unit Tests",
-            "type": "shell",
-            "command": "clang++",
-            "args": [
-                "-std=c++17",
-                "-g",
-                "Tests/unitTest.cpp",
-                "src/Vector3D.cpp",
-                "src/Line.cpp",
-                "-o",
-                "build/unitTest"
-            ],
-            "problemMatcher": [
-                "$gcc"
-            ]
-        },
-        {
             "label": "Clear build main",
             "type": "shell",
             "command": "bash",

@@ -5,7 +5,9 @@
       "includePath": [
         "${workspaceFolder}/src",
         "${workspaceFolder}/Tests",
-        "${workspaceFolder}/**"
+        "${workspaceFolder}/**",
+        "${workspaceFolder}/src",
+        "/opt/homebrew/opt/googletest/include"
       ],
       "defines": [],
       "macFrameworkPath": [
