@@ -36,3 +36,5 @@
 # Docs
 tricks and learnings
 *.zip
+debug_intersection
+debug_intersection.cpp
