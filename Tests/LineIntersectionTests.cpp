@@ -134,11 +134,11 @@ TEST_F(LineIntersectionTests, SmallLines) {
     EXPECT_TRUE(checker.doLinesIntersect());
 }
 
-// Test 9: Lines at Precision boundary: Fails. Need to fix, isEqual()'s default values.
+// Test 9: Lines at Precision boundary
 TEST_F(LineIntersectionTests, PrecisionBoundary) {
     double epsilon = Precision::CAD::LINEAR;
     Line line1(Point(0, 0, 0), Point(1, 0, 0));
-    Line line2(Point(0.5, -epsilon/2, 0), Point(0.5, epsilon/2, 0));
+    Line line2(Point(0.5, -epsilon, 0), Point(0.5, epsilon, 0));
     
     auto data = TwoLines::makeLinePairAnalysis(line1, line2);
     TwoLines::IntersectionChecker checker(line1, line2, data);

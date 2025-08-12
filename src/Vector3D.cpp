@@ -74,7 +74,7 @@ namespace Entities {
 
   Vector3D Vector3D::normalized() const {
     if (isNormalized) {
-      return Vector3D(*this);
+      return *this;
     }
     if (!MathUtils::isZero(modulus)) {
       return Vector3D(x / modulus, y / modulus, z / modulus);
@@ -88,7 +88,7 @@ namespace Entities {
   }
 
   void Vector3D::normalize() {
-    if (!MathUtils::isZero(modulus)) {
+    if (!MathUtils::isZero(modulus) && !isNormalized) {
       x = x / modulus;
       y = y / modulus;
       z = z / modulus;
