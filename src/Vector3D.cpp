@@ -83,6 +83,7 @@ namespace Entities {
     }
   }
 
+  //private.
   double Vector3D::calculateModulus() {
     return (std::sqrt(std::pow(x, 2) + std::pow(y, 2) + std::pow(z, 2)));
   }
@@ -111,8 +112,13 @@ namespace Entities {
   }
 
   bool Vector3D::isAntiparallel(const Vector3D &rhs) const {
+    if (!rhs.isZero() && !this->isZero()){
       return this->cross(rhs).isZero() && MathUtils::isNegative(this->dot(rhs));
+    } else {
+    throw std::runtime_error("this vector or input is a zero vector\n");
+    }
   }
+
   std::ostream &operator<<(std::ostream &os, const Vector3D &object) {
     os << "vector coordinates are: "
           "("
