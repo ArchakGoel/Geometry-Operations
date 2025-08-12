@@ -32,6 +32,7 @@
     1. not storing lines. The client will have access to lines given as input, so not needed. Plus not needed anywhere after constructor.
     2. Default constructor set to private and non-default;
 6. IntersectionChecker : all cross products are stored as non-optional members. As they can be 0 vectors. And 3D math supports 0 vectors so they are not filtered out by optional.
+7. Parameters are extracted using Axis enum, passed on as inputs to Vector3D [] operator to get x,y,z values.
 
 ## MathUtils namespace
 

@@ -33,6 +33,15 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/Tests/GeometryOperations/geomUtilsTests",
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/Tests",
+            "MIMode": "lldb"
+        },
+        {
+            "name": "Debug Specific Test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/Tests/GeometryOperations/geomUtilsTests",
             "args": ["--gtest_filter=LineIntersectionTests.PrecisionBoundary"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/Tests",
