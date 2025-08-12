@@ -38,9 +38,28 @@ namespace GeomUtils {
 
   namespace TwoLines {
 
-    // todo: shorten/refactor this method.
+    IntersectionChecker::IntersectionChecker(const Line &line1,
+                                             const Line &line2,
+                                             crossAndDotDataPtr crossAndDotData)
+        : line1(line1), line2(line2), data(crossAndDotData) {
+      checkIntersectionExistence();
+    }
+
+    //private
+    void IntersectionChecker::calculateParametersUsing(Axis axis) {
+      
+      int index = static_cast<int>(axis);
+
+      paramLine1 = data->getaTocCrossLine2()[index] /
+                    data->getLine1CrossLine2()[index];
+
+      paramLine2 = data->getaTocCrossLine1()[index] /
+                    data->getLine1CrossLine2()[index];
+
+    }
 
     void IntersectionChecker::checkIntersectionExistence() {
+
       if ((data->getLine1CrossLine2().isZero()) &&
           !(data->getaTocCrossLine1().isZero())) { // parallel but not aligned.
         intersects = false;
@@ -63,40 +82,24 @@ namespace GeomUtils {
 
       if (!MathUtils::isZero(data->getLine1CrossLine2().getX())) {
 
-        paramLine1 = data->getaTocCrossLine2().getX() /
-                     data->getLine1CrossLine2().getX();
-        paramLine2 = data->getaTocCrossLine1().getX() /
-                     data->getLine1CrossLine2().getX();
+        calculateParametersUsing(Axis::X);
 
       } else if (!MathUtils::isZero(data->getLine1CrossLine2().getY())) {
 
-        paramLine1 = data->getaTocCrossLine2().getY() /
-                     data->getLine1CrossLine2().getY();
-        paramLine2 = data->getaTocCrossLine1().getY() /
-                     data->getLine1CrossLine2().getY();
+        calculateParametersUsing(Axis::Y);
 
       } else if (!MathUtils::isZero(data->getLine1CrossLine2().getZ())) {
 
-        paramLine1 = data->getaTocCrossLine2().getZ() /
-                     data->getLine1CrossLine2().getZ();
-        paramLine2 = data->getaTocCrossLine1().getZ() /
-                     data->getLine1CrossLine2().getZ();
+        calculateParametersUsing(Axis::Z);
       }
 
-      if (paramLine1 < 0 || paramLine1 > 1 || paramLine2 < 0 ||
-          paramLine2 > 1) {
+      if (paramLine1 < 0 || paramLine1 > 1 || paramLine2 < 0 || paramLine2 > 1) {
+
         intersects = false;
         return;
       }
 
-      intersects = true; //remaining cases are for true.
-    }
-
-    IntersectionChecker::IntersectionChecker(const Line &line1,
-                                             const Line &line2,
-                                             crossAndDotDataPtr crossAndDotData)
-        : line1(line1), line2(line2), data(crossAndDotData) {
-      checkIntersectionExistence();
+      intersects = true;
     }
 
     void IntersectionChecker::calculateIntersectionPoint() {

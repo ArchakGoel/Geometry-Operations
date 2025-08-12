@@ -6,7 +6,10 @@
 
 using namespace Entities;
 namespace GeomUtils {
+
+  enum class Axis{ X = 0, Y = 1, Z = 2 };
   namespace TwoLines {
+
     // note: can make a vector<Line> input instead of separate lines to avoid
     // interchanging line1 with line2
     //!@brief: A and B are 1st and 2nd points of Line1 and C and D are for
@@ -27,7 +30,7 @@ namespace GeomUtils {
       void calculateDot(const Line &, const Line &) {
         throw std::runtime_error("dot product not implemented");
       }
-
+      //todo: make Cross and Dot methods public with a check if already not calculated.
       CrossAndDotCalculator();
     public:
       CrossAndDotCalculator(const Line &line1, const Line &line2,
@@ -69,8 +72,9 @@ namespace GeomUtils {
       std::optional<Point> intersectionPoint;
 
       void checkIntersectionExistence();
-
       IntersectionChecker();
+      void calculateParametersUsing(Axis axis);
+
     public:
       explicit IntersectionChecker(const Line &line1, const Line &line2,
                                    crossAndDotDataPtr crossAndDotData);
