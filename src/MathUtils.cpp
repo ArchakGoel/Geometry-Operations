@@ -23,14 +23,13 @@ namespace MathUtils {
   };
 
   bool isEqual(const Entities::Vector3D &vector1,
-               const Entities::Vector3D &vector2, double epsilon) {
+               const Entities::Vector3D &vector2) {
     return (isLinearEqual(vector1.getX(), vector2.getX()) &&
             (isLinearEqual(vector1.getY(), vector2.getY())) &&
             (isLinearEqual(vector1.getZ(), vector2.getZ())));
   };
 
-  bool isEqual(const Entities::Point &point1, const Entities::Point &point2,
-               double epsilon) {
+  bool isEqual(const Entities::Point &point1, const Entities::Point &point2) {
     return (isLinearEqual(point1.getX(), point2.getX()) &&
             (isLinearEqual(point1.getY(), point2.getY())) &&
             (isLinearEqual(point1.getZ(), point2.getZ())));

@@ -64,7 +64,7 @@ namespace GeomUtils {
 
       Line line1, line2;
       crossAndDotDataPtr data;
-      bool intersects;
+      bool intersects = false;
       double paramLine1, paramLine2;
       std::optional<Point> intersectionPoint;
 

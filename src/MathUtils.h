@@ -23,9 +23,9 @@ namespace MathUtils {
 
   bool isEqual(const Entities::Vector3D& vector1, const Entities::Vector3D& vector2, 
                 double tolerance = Precision::CAD::LINEAR);
+  bool isEqual(const Entities::Vector3D& vector1, const Entities::Vector3D& vector2);
 
-  bool isEqual(const Entities::Point& point1, const Entities::Point& point2, 
-                double tolerance = Precision::CAD::LINEAR);
+  bool isEqual(const Entities::Point& point1, const Entities::Point& point2);
 
   double round(float value, const int Precision = 3);
 };
