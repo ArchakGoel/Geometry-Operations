@@ -44,12 +44,11 @@
 1. Think again if its better software to put line utility operations in line class. No. DONE
 2. If Line and Vector and other entities leave GeomUtils such that their includes are not needed. Move isEqual to GeomUtils with forward declarations.
 
-
 ## MathUtils
 
 1. Considering renaming to GeometryComparison. For Future.
 2. isNotEqual in MathUtils.
-3. test epsilon is used or not in ` bool isEqual(const Entities::Point &point1, const Entities::Point &point2,
+3. test epsilon is used or not in `bool isEqual(const Entities::Point &point1, const Entities::Point &point2,
                double epsilon)`. Done
 
 ## Tests
