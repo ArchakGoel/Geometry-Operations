@@ -9,8 +9,7 @@ An effort to showcase production quality code for basic 3D vector algebra elemen
 
 ## Tests
 
-1. Tests are in `./Tests` folder. All except 1 tests pass for Line-Line Intersections.
-2. More tests are planned for Plane-Point operations and other features in GeomUtils.
+1. Tests are in `./Tests` folder. 
 
 ## Compatibility
 
