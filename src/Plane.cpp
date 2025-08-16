@@ -3,7 +3,7 @@
 
 namespace Entities {
 
-  Plane::Plane(Point point, Vector3D direction)
+  Plane::Plane(const Point& point, const Vector3D& direction)
       : point(point), normal(direction.normalized()) {
 
         };

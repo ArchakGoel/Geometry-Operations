@@ -10,7 +10,7 @@ namespace Entities {
 
   public:
 
-    explicit Plane(Point point, Vector3D direction);
+    explicit Plane(const Point& point, const Vector3D& direction);
     Plane():point(Point()), normal(Vector3D()){};
 
     Point getPoint() const { return point; }

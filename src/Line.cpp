@@ -2,7 +2,7 @@
 
 namespace Entities {
 
-  Line::Line(const Point inputVertex1, const Point inputVertex2) {
+  Line::Line(const Point& inputVertex1, const Point& inputVertex2) {
 
     if (MathUtils::isEqual(inputVertex1, inputVertex2)) {
       throw std::invalid_argument("Cannot create line from identical points");
