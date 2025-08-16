@@ -1,23 +1,23 @@
 #include "GeomUtils.h"
 #include "MathUtils.h"
 
-namespace GeomUtils {
 
-  using namespace Entities;
+namespace GeomUtils {
 
   namespace TwoLines {
 
-    crossAndDotDataPtr makeLinePairAnalysis(const Line &line1,
-                                            const Line &line2, bool doCross,
+
+    crossAndDotDataPtr makeLinePairAnalysis(const Entities::Line &line1,
+                                            const Entities::Line &line2, bool doCross,
                                             bool doDot) {
       return std::make_shared<CrossAndDotCalculator>(line1, line2, doCross,
                                                      doDot);
     }
 
-    CrossAndDotCalculator::CrossAndDotCalculator(const Line &line1,
-                                                 const Line &line2,
+    CrossAndDotCalculator::CrossAndDotCalculator(const Entities::Line &line1,
+                                                 const Entities::Line &line2,
                                                  bool doCross, bool doDot)
-        : aToc(Vector3D(line1.getVertex1(), line2.getVertex1())) {
+        : aToc(Entities::Vector3D(line1.getVertex1(), line2.getVertex1())) {
 
       if (doCross) {
         calculateCross(line1, line2);
@@ -27,8 +27,8 @@ namespace GeomUtils {
       }
     };
 
-    void CrossAndDotCalculator::calculateCross(const Line &line1,
-                                               const Line &line2) {
+    void CrossAndDotCalculator::calculateCross(const Entities::Line &line1,
+                                               const Entities::Line &line2) {
       line1CrossLine2 = line1.getDirection().cross(line2.getDirection());
       aTocCrossLine1 = aToc.cross(line1.getDirection());
       aTocCrossLine2 = aToc.cross(line2.getDirection());
@@ -38,8 +38,8 @@ namespace GeomUtils {
 
   namespace TwoLines {
 
-    IntersectionChecker::IntersectionChecker(const Line &line1,
-                                             const Line &line2,
+    IntersectionChecker::IntersectionChecker(const Entities::Line &line1,
+                                             const Entities::Line &line2,
                                              crossAndDotDataPtr crossAndDotData)
         : line1(line1), line2(line2), data(crossAndDotData) {
       checkIntersectionExistence();
@@ -107,13 +107,13 @@ namespace GeomUtils {
       if (intersects) {
 
         auto pointVector =
-            Vector3D(line1.getVertex1().getX(), line1.getVertex1().getY(),
+            Entities::Vector3D(line1.getVertex1().getX(), line1.getVertex1().getY(),
                      line1.getVertex1().getZ());
 
         pointVector = (line1.getDirection() * paramLine1) + pointVector;
 
         intersectionPoint =
-            Point(pointVector.getX(), pointVector.getY(), pointVector.getZ());
+            Entities::Point(pointVector.getX(), pointVector.getY(), pointVector.getZ());
         // test by matching with point from paramLine2.
       }
     }

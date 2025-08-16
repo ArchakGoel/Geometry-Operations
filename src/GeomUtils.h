@@ -4,7 +4,6 @@
 #include "Line.h"
 #include <optional>
 
-using namespace Entities;
 namespace GeomUtils {
 
   enum class Axis{ X = 0, Y = 1, Z = 2 };
@@ -17,29 +16,29 @@ namespace GeomUtils {
     class CrossAndDotCalculator {
 
     private:
-      Vector3D aToc;
-      Vector3D line1CrossLine2;
-      Vector3D aTocCrossLine1;
-      Vector3D aTocCrossLine2;
+      Entities::Vector3D aToc;
+      Entities::Vector3D line1CrossLine2;
+      Entities::Vector3D aTocCrossLine1;
+      Entities::Vector3D aTocCrossLine2;
 
       std::optional<double> line1DotLine2;
       std::optional<double> line1DotLine2Normalized;
 
-      void calculateCross(const Line &, const Line &);
+      void calculateCross(const Entities::Line &, const Entities::Line &);
 
-      void calculateDot(const Line &, const Line &) {
+      void calculateDot(const Entities::Line &, const Entities::Line &) {
         throw std::runtime_error("dot product not implemented");
       }
       //todo: make Cross and Dot methods public with a check if already not calculated.
       CrossAndDotCalculator();
     public:
-      CrossAndDotCalculator(const Line &line1, const Line &line2,
+      CrossAndDotCalculator(const Entities::Line &line1, const Entities::Line &line2,
                             bool doCross = true, bool doDot = false);
 
-      Vector3D getLine1CrossLine2() const { return line1CrossLine2; }
-      Vector3D getaTocCrossLine1() const { return aTocCrossLine1; }
-      Vector3D getaTocCrossLine2() const { return aTocCrossLine2; }
-      Vector3D getVectorAToC() const { return aToc; }
+      Entities::Vector3D getLine1CrossLine2() const { return line1CrossLine2; }
+      Entities::Vector3D getaTocCrossLine1() const { return aTocCrossLine1; }
+      Entities::Vector3D getaTocCrossLine2() const { return aTocCrossLine2; }
+      Entities::Vector3D getVectorAToC() const { return aToc; }
     };
 
     class MutualOrientationChecker {
@@ -54,8 +53,8 @@ namespace GeomUtils {
     };
 
     using crossAndDotDataPtr = std::shared_ptr<CrossAndDotCalculator>;
-    crossAndDotDataPtr makeLinePairAnalysis(const Line &line1,
-                                            const Line &line2,
+    crossAndDotDataPtr makeLinePairAnalysis(const Entities::Line &line1,
+                                            const Entities::Line &line2,
                                             bool doCross = true,
                                             bool doDot = false);
 
@@ -65,24 +64,24 @@ namespace GeomUtils {
     //! constructor.
     class IntersectionChecker {
 
-      Line line1, line2;
+      Entities::Line line1, line2;
       crossAndDotDataPtr data;
       bool intersects = false;
       double paramLine1, paramLine2;
-      std::optional<Point> intersectionPoint;
+      std::optional<Entities::Point> intersectionPoint;
 
       void checkIntersectionExistence();
       IntersectionChecker();
       void calculateParametersUsing(Axis axis);
 
     public:
-      explicit IntersectionChecker(const Line &line1, const Line &line2,
+      explicit IntersectionChecker(const Entities::Line &line1, const Entities::Line &line2,
                                    crossAndDotDataPtr crossAndDotData);
 
       void calculateIntersectionPoint();
 
-      std::vector<Line> getLines() const { return {line1, line2}; }
-      std::optional<Point> getIntersectionPoint() const {
+      std::vector<Entities::Line> getLines() const { return {line1, line2}; }
+      std::optional<Entities::Point> getIntersectionPoint() const {
         return (intersectionPoint.has_value() ? intersectionPoint
                                               : std::nullopt);
       }
