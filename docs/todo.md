@@ -11,6 +11,7 @@
 7. There is no need for custom definitions of the famous 5. It was only done for practice. Remove as much as possible with a note. More custom operators lead to more bugs. DONE
 8. Separate src and include folders. Not Needed now - DONE
 9. Round off double representation of real numbers in the final result/calculation.
+10. Check need for factory class for creating and returning the custom entities objects like Vector3D.
 
 ## Vector Class
 

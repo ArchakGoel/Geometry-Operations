@@ -1,6 +1,8 @@
 # Usage Notes
 
-1. Precision is borrowed from PRECISION.hxx in occt. Very good description.
+## Workspace
+
+1. Project is setup as a multi-root workspace setup as of now. Detailed by `geometry-operations.code-workspace`. So open the project as `Geometry Root` workspace. Both Tests and main have separate roots. This remains to be solved: a way to steer away from multi-root setup and put all tasks in the same root of main. That can get very cluttered with addition of more tests.
 
 ## JSONS
 
@@ -12,11 +14,11 @@
    5. For running the main - no debug and build.
 
 2. For Tests the setup is:
-   1. "Debug test (from root)" Use this for hitting breakpoints. 
-      1. It is in Geometry Operations/.vscode launch.json and not in Tests/.vscode. Because from Tests, probably due to conflicting workspaces internally in lldb or VSCode, its not stopping at breakpoints.
-      2. args is commented out in json, just put the name of the individual test you want to run.
-      3. Launch it from main.cpp ->F5 -> select the option
-   2. Build Tests and Clear Test Build are put in tasks.json under `Tests/.vscode`. Its a multi-root workspace setup as of now detailed by `geometry-operations.code-workspace`. Both Tests and main have separate roots.This remains to be solved, if this can be ignored and all tasks be put in the same root of main. That can get very cluttered with addition of more tests.
+   1. "Debug test (from root)" Use this for debugging with hitting the breakpoints.
+      1. It is in `Geometry Operations/.vscode/launch.json` and not in `Tests/.vscode/`. Because from Tests, probably due to conflicting workspaces internally in lldb or VSCode, its not working to stop at breakpoints.
+      2. For running a specific test with breakpoints use the `Debug Specific Test` launch option in the same launch.json as 1.
+      3. Launch it from main.cpp -> F5 -> select the launch option
+   2. Build Tests and Clear Test Build are put in tasks.json under `Tests/.vscode`. 
 
 ## Build Structure
 

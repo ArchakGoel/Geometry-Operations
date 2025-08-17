@@ -8,6 +8,8 @@
 4. Keep everything in a named or unnamed namespace for avoiding name conflicts.
 5. Keep constructors explicit to avoid implicit conversions which is bug prone.
 6. Initialize all members of every class in a constructor even if default is needed.
+7. Precision is borrowed from PRECISION.hxx in occt. Very good description.
+
 
 ## Vector3D Class
 
