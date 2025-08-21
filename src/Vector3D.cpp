@@ -14,9 +14,15 @@ namespace Entities {
   Vector3D::Vector3D(const Point &point1, const Point &point2)
       : x(point2.getX() - point1.getX()), y(point2.getY() - point1.getY()),
         z(point2.getZ() - point1.getZ()), modulus(calculateModulus()),
-        isNormalized(isModulusUnity()) {}
+        isNormalized(isModulusUnity()) {
+
+          if (point1==point2){
+            throw std::invalid_argument("points must be distinct for a valid vector");
+          }
+        }
 
   double Vector3D::operator[](size_t index) const {
+
     switch (index) {
     case 0:
       return x;
@@ -30,30 +36,37 @@ namespace Entities {
   }
 
   bool Vector3D::isModulusUnity() const {
+
     return MathUtils::isEqual(modulus, 1);
   }
 
   Vector3D Vector3D::operator-(const Vector3D &rhs) const {
+
     return Vector3D(x - rhs.getX(), y - rhs.getY(), z - rhs.getZ());
   }
 
   Vector3D Vector3D::operator+(const Vector3D &rhs) const {
+
     return Vector3D(x + rhs.getX(), y + rhs.getY(), z + rhs.getZ());
   }
 
   bool Vector3D::operator==(const Vector3D &rhs) const {
+
     return MathUtils::isEqual(*this, rhs);
   }
 
   bool Vector3D::operator!=(const Vector3D &rhs) const {
+
     return !(*this == rhs);
   }
 
   Vector3D Vector3D::operator*(const double scalar) const {
+
     return Vector3D(x * scalar, y * scalar, z * scalar);
   }
 
   Vector3D Vector3D::operator/(const double scalar) const {
+
     if (!MathUtils::isZero(scalar)) {
       return (Vector3D(x / scalar, y / scalar, z / scalar));
     } else {
@@ -62,10 +75,12 @@ namespace Entities {
   }
 
   double Vector3D::dot(const Vector3D &rhs) const {
+    
     return (x * rhs.getX() + y * rhs.getY() + z * rhs.getZ());
   }
 
   Vector3D Vector3D::cross(const Vector3D &rhs) const {
+
     auto xComponent = (y * rhs.z - z * rhs.y);
     auto yComponent = -(x * rhs.z - z * rhs.x);
     auto zComponent = (x * rhs.y - y * rhs.x);
@@ -73,6 +88,7 @@ namespace Entities {
   }
 
   Vector3D Vector3D::normalized() const {
+
     if (isNormalized) {
       return *this;
     }
@@ -85,10 +101,12 @@ namespace Entities {
 
   //private.
   double Vector3D::calculateModulus() {
+
     return (std::sqrt(std::pow(x, 2) + std::pow(y, 2) + std::pow(z, 2)));
   }
 
   void Vector3D::normalize() {
+
     if (!MathUtils::isZero(modulus) && !isNormalized) {
       x = x / modulus;
       y = y / modulus;
@@ -98,6 +116,7 @@ namespace Entities {
   }
 
   bool Vector3D::isZero() const {
+
     return (MathUtils::isZero(x) && MathUtils::isZero(y) &&
             MathUtils::isZero(z));
   }
@@ -112,6 +131,7 @@ namespace Entities {
   }
 
   bool Vector3D::isAntiparallel(const Vector3D &rhs) const {
+
     if (!rhs.isZero() && !this->isZero()){
       return this->cross(rhs).isZero() && MathUtils::isNegative(this->dot(rhs));
     } else {
@@ -120,6 +140,7 @@ namespace Entities {
   }
 
   std::ostream &operator<<(std::ostream &os, const Vector3D &object) {
+    
     os << "vector coordinates are: "
           "("
        << object.x << ", " << object.y << ", " << object.z << ")" << "\n";
