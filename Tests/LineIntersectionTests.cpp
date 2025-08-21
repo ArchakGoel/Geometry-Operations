@@ -145,3 +145,14 @@ TEST_F(LineIntersectionTests, PrecisionBoundary) {
     
     EXPECT_TRUE(checker.doLinesIntersect());
 }
+
+// Test 10: Dot Product Check
+TEST_F(LineIntersectionTests, DotProducts){
+
+    Line line1(Point(3, 2, 0), Point(2, 1, 0));
+    Line line2(Point(1, 1, 0 ), Point(2, 3, 0));
+
+    auto data = TwoLines::makeLinePairAnalysis(line1, line2, true, true);
+    EXPECT_TRUE(MathUtils::isEqual(data->getDot().value(),-3));
+
+}

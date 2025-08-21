@@ -14,6 +14,8 @@ namespace GeomUtils {
                                                      doDot);
     }
 
+
+
     CrossAndDotCalculator::CrossAndDotCalculator(const Entities::Line &line1,
                                                  const Entities::Line &line2,
                                                  bool doCross, bool doDot)
@@ -34,7 +36,15 @@ namespace GeomUtils {
       aTocCrossLine2 = aToc.cross(line2.getDirection());
     }
 
+    void CrossAndDotCalculator::calculateDot(const Entities::Line &line1,
+                                            const Entities::Line &line2){
+
+      line1DotLine2 = line1.getDirection().dot(line2.getDirection());
+
+    }
+
   }
+
 
   namespace TwoLines {
 

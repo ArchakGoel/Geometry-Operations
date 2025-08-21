@@ -44,6 +44,7 @@
 
 1. Think again if its better software to put line utility operations in line class. No. DONE
 2. If Line and Vector and other entities leave GeomUtils such that their includes are not needed. Move isEqual to GeomUtils with forward declarations.
+3. Better name for getaToc...
 
 ## MathUtils
 

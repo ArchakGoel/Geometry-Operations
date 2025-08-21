@@ -14,7 +14,7 @@
    5. For running the main - no debug and build.
 
 2. For Tests the setup is:
-   1. "Debug test (from root)" Use this for debugging with hitting the breakpoints.
+   1. "Debug test (from root)" Use this for debugging while hitting the breakpoints.
       1. It is in `Geometry Operations/.vscode/launch.json` and not in `Tests/.vscode/`. Because from Tests, probably due to conflicting workspaces internally in lldb or VSCode, its not working to stop at breakpoints.
       2. For running a specific test with breakpoints use the `Debug Specific Test` launch option in the same launch.json as 1.
       3. Launch it from main.cpp -> F5 -> select the launch option

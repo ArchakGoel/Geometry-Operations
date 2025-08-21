@@ -22,14 +22,11 @@ namespace GeomUtils {
       Entities::Vector3D aTocCrossLine2;
 
       std::optional<double> line1DotLine2;
-      std::optional<double> line1DotLine2Normalized;
 
       void calculateCross(const Entities::Line &, const Entities::Line &);
 
-      void calculateDot(const Entities::Line &, const Entities::Line &) {
-        throw std::runtime_error("dot product not implemented");
-      }
-      //todo: make Cross and Dot methods public with a check if already not calculated.
+      void calculateDot(const Entities::Line &, const Entities::Line &);
+
       CrossAndDotCalculator();
     public:
       CrossAndDotCalculator(const Entities::Line &line1, const Entities::Line &line2,
@@ -39,6 +36,7 @@ namespace GeomUtils {
       Entities::Vector3D getaTocCrossLine1() const { return aTocCrossLine1; }
       Entities::Vector3D getaTocCrossLine2() const { return aTocCrossLine2; }
       Entities::Vector3D getVectorAToC() const { return aToc; }
+       std::optional<double> getDot() const { return line1DotLine2.has_value() ? line1DotLine2 : std::nullopt; }
     };
 
     class MutualOrientationChecker {
